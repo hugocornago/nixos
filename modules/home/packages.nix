@@ -8,7 +8,6 @@ in
 
     ## CLI utility
     ani-cli
-    aoc-cli                           # Advent of Code command-line tool
     binsider
     bitwise                           # cli tool for bit / hex manipulation
     caligula                          # User-friendly, lightweight TUI for disk imaging
@@ -23,21 +22,27 @@ in
     gifsicle                          # gif utility
     gtrash                            # rm replacement, put deleted files in system trash
     hexdump
-    htop
     imv                               # image viewer
     jq                                # JSON processor
+    keepassxc
     killall
+    lazygit
     libnotify
-    man-pages                         # extra man pages
+    lutris
+    man-pages					            	  # extra man pages
     mimeo
     mpv                               # video player
     ncdu                              # disk space
     nitch                             # systhem fetch util
     nixd                              # nix lsp
     nixfmt-rfc-style                  # nix formatter
+    openrgb-with-all-plugins          # plugins for openrgb
     openssl
     onefetch                          # fetch utility for git repo
+    p7zip                             # almighty decompressor
     pamixer                           # pulseaudio command line mixer
+    pulsemixer                        # pulseaudio command line mixer with better frontend
+    # copyq
     playerctl                         # controller for media players
     poweralertd
     programmer-calculator
@@ -45,64 +50,59 @@ in
     shfmt                             # bash formatter
     swappy                            # snapshot editing tool
     tdf                               # cli pdf viewer
-    treefmt                           # project formatter
+    teamspeak3                        # teamspeak for albion
+    treefmt                          # project formatter
     tldr
     todo                              # cli todo list
     toipe                             # typing test in the terminal
     ttyper                            # cli typing test
     unzip
     valgrind                          # c memory analyzer
-    wavemon                           # monitoring for wireless network devices
     wl-clipboard                      # clipboard utils for wayland (wl-copy, wl-paste)
     wget
-    woomer
     yt-dlp-light
     xdg-utils
     xxd
 
-    ## CLI 
+    # Rust
+    cargo
+    rustc
+
+    # CLI 
     cbonsai                           # terminal screensaver
     cmatrix
     pipes                             # terminal screensaver
-    sl
     tty-clock                         # cli clock
 
     ## GUI Apps
     audacity
     bleachbit                         # cache cleaner
-    filezilla
     gimp
-    gnome-disk-utility
-    ldtk                              # 2D level editor
-    tiled                             # tile map editor
     libreoffice
     nix-prefetch-github
     obs-studio
     pavucontrol                       # pulseaudio volume controle (GUI)
-    pitivi                            # video editing
-    gnome-calculator                  # calculator
-    mission-center                    # GUI resources monitor
+    #pitivi                            # video editing
+    qalculate-gtk                     # calculator
+    qbittorrent
+    resources                         # GUI resources monitor
     soundwireserver
     thunderbird
     vlc
     winetricks
     wineWowPackages.wayland
+    zathura
     zenity
 
-    # C / C++
-    gcc
-    gdb
-    cmake
-    gnumake
-    llvmPackages_20.clang-tools
+    xclip
 
-    # Zig
-    # inputs.zig.packages.${system}.master
-    # zls
+    # C / C++
+    # gcc
+    # gdb
+    # gnumake
 
     # Python
     python3
-    python312Packages.ipython
 
     inputs.alejandra.defaultPackage.${system}
   ]);

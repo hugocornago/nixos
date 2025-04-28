@@ -15,7 +15,7 @@ in
     twemoji-color-font
     noto-fonts-emoji
     fantasque-sans-mono
-    maple-mono.truetype-autohint
+    maple-mono.truetype
     # monolisa
     # monolisa-nerd
   ];
@@ -27,15 +27,11 @@ in
       size = 12;
     };
     theme = {
-      name = "Colloid-Green-Dark-Gruvbox";
-      package = pkgs.colloid-gtk-theme.override {
+      name = "Gruvbox-Green-Dark";
+      package = pkgs.gruvbox-gtk-theme.override {
         colorVariants = [ "dark" ];
         themeVariants = [ "green" ];
-        tweaks = [
-          "gruvbox"
-          "rimless"
-          "float"
-        ];
+        tweakVariants = [ "macos" ];
       };
     };
     iconTheme = {

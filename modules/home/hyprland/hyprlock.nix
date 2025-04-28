@@ -58,7 +58,7 @@ in
       monitor =
       size = 300, 50
       color = rgba(102, 92, 84, .33)
-      rounding = 10
+      rounding = 15
       border_size = 0
       border_color = rgba(255, 255, 255, 0)
       rotate = 0
@@ -84,8 +84,8 @@ in
     input-field {
       monitor =
       size = 300, 50
-      outline_thickness = 1
-      rounding = 10
+      outline_thickness = 0
+      rounding = 15
       dots_size = 0.25 # Scale of input-field height, 0.2 - 0.8
       dots_spacing = 0.4 # Scale of dots' absolute size, 0.0 - 1.0
       dots_center = true

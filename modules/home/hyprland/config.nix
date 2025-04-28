@@ -4,27 +4,31 @@
     settings = {
       # autostart
       exec-once = [
-        # "hash dbus-update-activation-environment 2>/dev/null"
-        "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "systemctl --user import-environment &"
+        "hash dbus-update-activation-environment 2>/dev/null &"
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &"
 
         "nm-applet &"
         "poweralertd &"
-        "wl-clip-persist --clipboard both &"
-        "wl-paste --watch cliphist store &"
+        "wl-paste --type text --watch cliphist store" # Stores only text data
+        "wl-paste --type image --watch cliphist store" # Stores only image data
         "waybar &"
         "swaync &"
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
         "swww-daemon &"
 
         "hyprlock"
+
+        ## App auto start
+        # "[workspace 1 silent] zen"
+        # "[workspace 2 silent] kitty"
       ];
 
       input = {
-        kb_layout = "us,fr";
-        kb_options = "grp:alt_caps_toggle";
+        kb_layout = "us";
+        kb_variant = "";
+        kb_options = "caps:escape";
         numlock_by_default = true;
-        repeat_delay = 300;
         follow_mouse = 0;
         float_switch_override_focus = 0;
         mouse_refocus = 0;
@@ -37,10 +41,10 @@
       general = {
         "$mainMod" = "SUPER";
         layout = "dwindle";
-        gaps_in = 6;
-        gaps_out = 12;
+        gaps_in = 5;
+        gaps_out = 10;
         border_size = 2;
-        "col.active_border" = "rgb(98971A) rgb(CC241D) 45deg";
+        "col.active_border" = "rgb(A89984)";
         "col.inactive_border" = "0x00000000";
         # border_part_of_window = false;
         no_border_on_floating = false;
@@ -55,11 +59,12 @@
         enable_swallow = true;
         focus_on_activate = true;
         new_window_takes_over_fullscreen = 2;
-        middle_click_paste = false;
+        middle_click_paste = true;
       };
 
       dwindle = {
-        force_split = 2;
+        # no_gaps_when_only = false;
+        force_split = 0;
         special_scale_factor = 1.0;
         split_width_multiplier = 1.0;
         use_active_for_splits = true;
@@ -70,6 +75,7 @@
       master = {
         new_status = "master";
         special_scale_factor = 1;
+        # no_gaps_when_only = false;
       };
 
       decoration = {
@@ -131,25 +137,21 @@
         ];
       };
 
-      binds = {
-        movefocus_cycles_fullscreen = true;
-      };
-
       bind = [
         # show keybinds list
         "$mainMod, F1, exec, show-keybinds"
 
         # keybindings
-        "$mainMod, Return, exec, ghostty"
-        "ALT, Return, exec, [float; size 1111 700] ghostty"
-        "$mainMod SHIFT, Return, exec, [fullscreen] ghostty"
-        "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] zen-beta'"
+        "$mainMod, Return, exec, kitty"
+        "ALT, Return, exec, [float; center; size 950 650] kitty"
+        "$mainMod SHIFT, Return, exec, [fullscreen] kitty"
+        "$mainMod, B, exec, hyprctl dispatch exec '[workspace 2 silent] zen'"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
         "$mainMod, Space, exec, toggle_float"
-        "$mainMod, D, exec, rofi -show drun || pkill rofi"
-        "$mainMod SHIFT, D, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mainMod, R, exec, rofi -show drun || pkill rofi"
+        "$mainMod, D, exec, vesktop"
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
         "$mainMod, Escape, exec, swaylock"
         "ALT, Escape, exec, hyprlock"
@@ -157,16 +159,16 @@
         "$mainMod, P, pseudo,"
         "$mainMod, X, togglesplit,"
         "$mainMod, T, exec, toggle_oppacity"
-        "$mainMod, E, exec, nemo"
-        "ALT, E, exec, hyprctl dispatch exec '[float; size 1111 700] nemo'"
-        "$mainMod SHIFT, E, exec, hyprctl dispatch exec '[float; size 1111 700] ghostty -e yazi'"
+        "$mainMod, F9, exec, ~/.local/autoclicker"
+        # "$mainMod CTRL, E, exec, nemo"
+        # "$mainMod, E, exec, hyprctl dispatch exec '[float; center; size 1111 700] nemo'"
+        # "$mainMod SHIFT, E, exec, hyprctl dispatch exec '[float; center; size 1111 700] kitty yazi'"
         "$mainMod SHIFT, B, exec, toggle_waybar"
         "$mainMod, C ,exec, hyprpicker -a"
-        "$mainMod, W,exec, wallpaper-picker"
-        "$mainMod SHIFT, W,exec, hyprctl dispatch exec '[float; size 925 615] waypaper'"
-        "$mainMod, N, exec, swaync-client -t -sw"
-        "CTRL SHIFT, Escape, exec, hyprctl dispatch exec '[workspace 9] missioncenter'"
-        "$mainMod, equal, exec, woomer"
+        # "$mainMod, W,exec, wallpaper-picker"
+        "$mainMod, W, killactive"
+        "$mainMod SHIFT, W,exec, hyprctl dispatch exec '[float; center; size 925 615] waypaper'"
+        # "$mainMod, N, exec, swaync-client -t -sw"
         # "$mainMod SHIFT, W, exec, vm-start"
 
         # screenshot
@@ -175,26 +177,14 @@
         "$mainMod SHIFT, Print, exec, screenshot --swappy"
 
         # switch focus
-        "$mainMod, left,  movefocus, l"
+        "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
-        "$mainMod, up,    movefocus, u"
-        "$mainMod, down,  movefocus, d"
+        "$mainMod, up, movefocus, u"
+        "$mainMod, down, movefocus, d"
         "$mainMod, h, movefocus, l"
         "$mainMod, j, movefocus, d"
         "$mainMod, k, movefocus, u"
         "$mainMod, l, movefocus, r"
-
-        "$mainMod, left,  alterzorder, top"
-        "$mainMod, right, alterzorder, top"
-        "$mainMod, up,    alterzorder, top"
-        "$mainMod, down,  alterzorder, top"
-        "$mainMod, h, alterzorder, top"
-        "$mainMod, j, alterzorder, top"
-        "$mainMod, k, alterzorder, top"
-        "$mainMod, l, alterzorder, top"
-
-        "CTRL ALT, up, exec, hyprctl dispatch focuswindow floating"
-        "CTRL ALT, down, exec, hyprctl dispatch focuswindow tiled"
 
         # switch workspace
         "$mainMod, 1, workspace, 1"
@@ -226,28 +216,28 @@
         "$mainMod SHIFT, right, movewindow, r"
         "$mainMod SHIFT, up, movewindow, u"
         "$mainMod SHIFT, down, movewindow, d"
-        "$mainMod SHIFT, h, movewindow, l"
-        "$mainMod SHIFT, j, movewindow, d"
-        "$mainMod SHIFT, k, movewindow, u"
-        "$mainMod SHIFT, l, movewindow, r"
+        "$mainMod SHIFT, n, movewindow, l"
+        "$mainMod SHIFT, e, movewindow, d"
+        "$mainMod SHIFT, i, movewindow, u"
+        "$mainMod SHIFT, o, movewindow, r"
 
         "$mainMod CTRL, left, resizeactive, -80 0"
         "$mainMod CTRL, right, resizeactive, 80 0"
         "$mainMod CTRL, up, resizeactive, 0 -80"
         "$mainMod CTRL, down, resizeactive, 0 80"
-        "$mainMod CTRL, h, resizeactive, -80 0"
-        "$mainMod CTRL, j, resizeactive, 0 80"
-        "$mainMod CTRL, k, resizeactive, 0 -80"
-        "$mainMod CTRL, l, resizeactive, 80 0"
+        "$mainMod CTRL, n, resizeactive, -80 0"
+        "$mainMod CTRL, e, resizeactive, 0 80"
+        "$mainMod CTRL, i, resizeactive, 0 -80"
+        "$mainMod CTRL, o, resizeactive, 80 0"
 
         "$mainMod ALT, left, moveactive,  -80 0"
         "$mainMod ALT, right, moveactive, 80 0"
         "$mainMod ALT, up, moveactive, 0 -80"
         "$mainMod ALT, down, moveactive, 0 80"
-        "$mainMod ALT, h, moveactive,  -80 0"
-        "$mainMod ALT, j, moveactive, 0 80"
-        "$mainMod ALT, k, moveactive, 0 -80"
-        "$mainMod ALT, l, moveactive, 80 0"
+        "$mainMod ALT, n, moveactive,  -80 0"
+        "$mainMod ALT, e, moveactive, 0 80"
+        "$mainMod ALT, i, moveactive, 0 -80"
+        "$mainMod ALT, o, moveactive, 80 0"
 
         # media and volume controls
         # ",XF86AudioMute,exec, pamixer -t"
@@ -286,22 +276,44 @@
 
       # windowrule
       windowrule = [
-        "float,class:^(Viewnior)$"
-        "float,class:^(imv)$"
-        "float,class:^(mpv)$"
-        "tile,class:^(Aseprite)$"
-        "float,class:^(Audacious)$"
-        "pin,class:^(rofi)$"
-        "pin,class:^(waypaper)$"
-        # "idleinhibit focus,mpv"
-        # "float,udiskie"
+        "float,Viewnior"
+        "center,Viewnior"
+        "size 1200 800,Viewnior"
+        "float,imv"
+        "center,imv"
+        "size 1200 725,imv"
+        "float,mpv"
+        "center,mpv"
+        "tile,Aseprite"
+        "size 1200 725,mpv"
+        "float,audacious"
+        "pin,rofi"
+        "pin,waypaper"
+        "tile, neovide"
+        "idleinhibit focus,mpv"
+        "float,udiskie"
         "float,title:^(Transmission)$"
         "float,title:^(Volume Control)$"
         "float,title:^(Firefox — Sharing Indicator)$"
         "move 0 0,title:^(Firefox — Sharing Indicator)$"
         "size 700 450,title:^(Volume Control)$"
         "move 40 55%,title:^(Volume Control)$"
+      ];
 
+      # windowrulev2
+      windowrulev2 = [
+        "tag +poe, title:(Path of Exile 2)"
+        "tag +poe, class:(steam_app_2694490)"
+        "float, tag:poe"
+        "tag +apt, title:(Exiled Exchange 2)"
+        "tag +apt, class:(exiled-exchange-2)"
+        "float, tag:apt"
+        "noblur, tag:apt"
+        "nofocus, tag:apt # Disable auto-focus"
+        "noshadow, tag:apt"
+        "noborder, tag:apt"
+        "size 100% 100%, tag:apt"
+        "center, tag:apt"
         "float, title:^(Picture-in-Picture)$"
         "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
         "pin, title:^(Picture-in-Picture)$"
@@ -309,26 +321,32 @@
         "opacity 1.0 override 1.0 override, title:^(.*mpv.*)$"
         "opacity 1.0 override 1.0 override, class:(Aseprite)"
         "opacity 1.0 override 1.0 override, class:(Unity)"
+        "opacity 1.0 override 1.0 override, class:(steam_app_2694490)"
         "opacity 1.0 override 1.0 override, class:(zen)"
         "opacity 1.0 override 1.0 override, class:(evince)"
-        "workspace 1, class:^(zen)$"
+        "workspace 1, class:^(steam_app_2694490)$"
+        "workspace 1, class:^(.gamescope-wrapped)$"
+        "workspace 2, class:^(zen)$"
         "workspace 3, class:^(evince)$"
         "workspace 4, class:^(Gimp-2.10)$"
         "workspace 4, class:^(Aseprite)$"
         "workspace 5, class:^(Audacious)$"
         "workspace 5, class:^(Spotify)$"
         "workspace 8, class:^(com.obsproject.Studio)$"
-        "workspace 10, class:^(discord)$"
-        "workspace 10, class:^(WebCord)$"
+        "workspace 10, class:^(vesktop)$"
+        "fullscreen, class:^(steam_app_2694490)$"
+        "fullscreen, class:^(.gamescope-wrapped)$"
         "idleinhibit focus, class:^(mpv)$"
         "idleinhibit fullscreen, class:^(firefox)$"
-        "float,class:^(org.gnome.Calculator)$"
         "float,class:^(waypaper)$"
         "float,class:^(zenity)$"
+        "center,class:^(zenity)$"
         "size 850 500,class:^(zenity)$"
-        "size 725 330,class:^(SoundWireServer)$"
         "float,class:^(org.gnome.FileRoller)$"
-        "float,class:^(org.pulseaudio.pavucontrol)$"
+        "center,class:^(org.gnome.FileRoller)$"
+        "size 850 500,class:^(org.gnome.FileRoller)$"
+        "size 850 500,title:^(File Upload)$"
+        "float,class:^(pavucontrol)$"
         "float,class:^(SoundWireServer)$"
         "float,class:^(.sameboy-wrapped)$"
         "float,class:^(file_progress)$"
@@ -357,9 +375,6 @@
         "rounding 0, floating:0, onworkspace:w[tg1]"
         "bordersize 0, floating:0, onworkspace:f[1]"
         "rounding 0, floating:0, onworkspace:f[1]"
-
-        # "maxsize 1111 700, floating: 1"
-        # "center, floating: 1"
 
         # Remove context menu transparency in chromium based apps
         "opaque,class:^()$,title:^()$"

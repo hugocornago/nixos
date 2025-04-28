@@ -3,11 +3,15 @@
   programs.git = {
     enable = true;
 
-    userName = "Frost-Phoenix";
-    userEmail = "67cyril6767@gmail.com";
+    # userName = "hugocornago";
+    # userEmail = "hugo@cornago.net";
 
     extraConfig = {
-      init.defaultBranch = "main";
+      user.name = "Hugo Cornago";
+      user.email = "hugo@zuperito.xyz";
+      user.signingKey = "E68FD6797DEB7313";
+      commit.gpgsign = true;
+      init.defaultBranch = "master";
       credential.helper = "store";
       merge.conflictstyle = "diff3";
       diff.colorMoved = "default";
@@ -24,7 +28,7 @@
     };
   };
 
-  home.packages = [ pkgs.gh ]; # pkgs.git-lfs
+  home.packages = [ pkgs.git-lfs ]; # pkgs.git-lfs
 
   programs.zsh.shellAliases = {
     g = "lazygit";

@@ -4,6 +4,7 @@
     swww
     inputs.hypr-contrib.packages.${pkgs.system}.grimblast
     hyprpicker
+    inputs.hyprmag.packages.${pkgs.system}.hyprmag
     grim
     slurp
     wl-clip-persist
@@ -18,9 +19,6 @@
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-    package = null;
-    portalPackage = null;
-
     xwayland = {
       enable = true;
       # hidpi = true;

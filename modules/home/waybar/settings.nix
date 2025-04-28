@@ -41,7 +41,6 @@ in
       "pulseaudio"
       "network"
       "battery"
-      "hyprland/language"
       "custom/notification"
     ];
     clock = {
@@ -118,7 +117,6 @@ in
       };
       scroll-step = 2;
       on-click = "pamixer -t";
-      on-click-right = "pavucontrol";
     };
     battery = {
       format = "<span foreground='${yellow}'>{icon}</span> {capacity}%";
@@ -139,11 +137,6 @@ in
       format-time = "{H}h{M}m";
       tooltip = true;
       tooltip-format = "{time}";
-    };
-    "hyprland/language" = {
-      format = "<span foreground='#FABD2F'> </span> {}";
-      format-fr = "FR";
-      format-en = "US";
     };
     "custom/launcher" = {
       format = "";

@@ -2,7 +2,7 @@
   description = "FrostPhoenix's nixos configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nur.url = "github:nix-community/NUR";
 
     hypr-contrib.url = "github:hyprwm/contrib";
@@ -12,7 +12,11 @@
 
     nix-gaming.url = "github:fufexan/nix-gaming";
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -24,6 +28,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprmag.url = "github:SIMULATAN/hyprmag";
+
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
@@ -33,19 +39,13 @@
       flake = false;
     };
 
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
-
-    zig.url = "github:mitchellh/zig-overlay";
-
-    nvf.url = "github:notashelf/nvf";
+    nixcord.url = "github:kaylorben/nixcord";
   };
 
   outputs =
     { nixpkgs, self, ... }@inputs:
     let
-      username = "frostphoenix";
+      username = "cornago";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;

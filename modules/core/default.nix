@@ -17,6 +17,7 @@
     ./program.nix
     ./security.nix
     ./services.nix
+    ./syncthing.nix
     ./steam.nix
     ./system.nix
     ./flatpak.nix

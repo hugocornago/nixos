@@ -13,7 +13,7 @@ set -e
 set -u
 
 # All supported choices
-all=(shutdown reboot suspend hibernate lockscreen)
+all=(shutdown reboot reboot_to_windows lockscreen)
 
 # By default, show all (i.e., just copy the array)
 show=("${all[@]}")
@@ -25,6 +25,7 @@ texts[logout]="log out"
 texts[suspend]="suspend"
 texts[hibernate]="hibernate"
 texts[reboot]="reboot"
+texts[reboot_to_windows]="windows"
 texts[shutdown]="shut down"
 
 declare -A icons
@@ -34,6 +35,7 @@ icons[logout]="\Uf0343"
 icons[suspend]="\Uf04b2"
 icons[hibernate]="\Uf02ca"
 icons[reboot]="\Uf0709"
+icons[reboot_to_windows]="\Uf017a"
 icons[shutdown]="\Uf0425"
 icons[cancel]="\Uf0156"
 
@@ -44,10 +46,11 @@ actions[logout]="sway exit"
 actions[suspend]="systemctl suspend"
 actions[hibernate]="systemctl hibernate"
 actions[reboot]="systemctl reboot"
+actions[reboot_to_windows]="/etc/profiles/per-user/cornago/bin/windows-reboot"
 actions[shutdown]="systemctl poweroff"
 
 # By default, ask for confirmation for actions that are irreversible
-confirmations=(reboot shutdown hibernate)
+confirmations=(reboot reboot_to_windows shutdown hibernate)
 
 # By default, no dry run
 dryrun=false

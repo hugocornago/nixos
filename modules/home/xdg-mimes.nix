@@ -2,15 +2,15 @@
 with lib;
 let
   defaultApps = {
-    browser = [ "zen-beta.desktop" ];
+    browser = [ "zen-browser.desktop" ];
     text = [ "org.gnome.TextEditor.desktop" ];
-    image = [ "imv-dir.desktop" ];
+    image = [ "viewnior.desktop" ];
     audio = [ "mpv.desktop" ];
     video = [ "mpv.desktop" ];
     directory = [ "nemo.desktop" ];
     office = [ "libreoffice.desktop" ];
     pdf = [ "org.gnome.Evince.desktop" ];
-    terminal = [ "ghostty.desktop" ];
+    terminal = [ "kitty.desktop" ];
     archive = [ "org.gnome.FileRoller.desktop" ];
     discord = [ "webcord.desktop" ];
   };
@@ -93,6 +93,8 @@ in
   xdg.mimeApps.enable = true;
   xdg.mimeApps.associations.added = associations;
   xdg.mimeApps.defaultApplications = associations;
+
+  home.packages = with pkgs; [ junction ];
 
   home.sessionVariables = {
     # prevent wine from creating file associations

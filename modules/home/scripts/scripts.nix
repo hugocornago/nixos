@@ -57,9 +57,15 @@ let
   rofi-power-menu = pkgs.writeScriptBin "rofi-power-menu" (
     builtins.readFile ./scripts/rofi-power-menu.sh
   );
+
   power-menu = pkgs.writeScriptBin "power-menu" (
     builtins.readFile ./scripts/power-menu.sh
   );
+
+  windows-reboot = pkgs.writeScriptBin "windows-reboot" (
+    builtins.readFile ./scripts/windows-reboot.sh
+  );
+
 in
 {
   home.packages = with pkgs; [
@@ -93,5 +99,6 @@ in
 
     rofi-power-menu
     power-menu
+    windows-reboot
   ];
 }

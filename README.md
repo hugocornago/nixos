@@ -29,14 +29,20 @@
 ### 🖼️ Gallery
 
 <p align="center">
-   <img src="./.github/assets/screenshots/1.png" style="margin-bottom: 15px;"/> <br>
-   <img src="./.github/assets/screenshots/2.png" style="margin-bottom: 15px;"/> <br>
-   <img src="./.github/assets/screenshots/3.png" style="margin-bottom: 15px;"/> <br>
-   <img src="./.github/assets/screenshots/4.png" style="margin-bottom: 15px;"/> <br>
-   <img src="./.github/assets/screenshots/5.png" style="margin-bottom: 15px;"/> <br>
-   <img src="./.github/assets/screenshots/hyprlock.png" style="margin-bottom: 15px;" /> <br>
-   Screenshots last updated <b>2025-01-05</b>
+   <img src="./.github/assets/screenshots/1.png" style="margin-bottom: 10px;"/> <br>
+   <img src="./.github/assets/screenshots/2.png" style="margin-bottom: 10px;"/> <br>
+   <img src="./.github/assets/screenshots/3.png" style="margin-bottom: 10px;"/> <br>
+   Screenshots last updated <b>2024-08-24</b>
 </p>
+
+<details>
+<summary>
+Hyprlock (EXPAND)
+</summary>
+<p align="center">
+   <img src="./.github/assets/screenshots/hyprlock.png" style="margin-bottom: 10px;" /> <br>
+</p>
+</details>
 
 Here is my previous Catppuccin rice. You can find it [here](https://github.com/Frost-Phoenix/nixos-config/tree/catppuccin)
 <details>
@@ -82,23 +88,22 @@ Catppuccin (EXPAND)
 | **Bar**                     | [Waybar][Waybar] |
 | **Application Launcher**    | [rofi][rofi] |
 | **Notification Daemon**     | [swaync][swaync] |
-| **Terminal Emulator**       | [Ghostty][Ghostty] |
-| **Shell**                   | [zsh][zsh] + [powerlevel10k][powerlevel10k] |
+| **Terminal Emulator**       | [Wezterm][Wezterm] |
+| **Shell**                   | [zsh][zsh] + [oh-my-zsh][oh-my-zsh] + [Starship][Starship] |
 | **Text Editor**             | [VSCodium][VSCodium] + [Neovim][Neovim] |
 | **network management tool** | [NetworkManager][NetworkManager] + [network-manager-applet][network-manager-applet] |
 | **System resource monitor** | [Btop][Btop] |
 | **File Manager**            | [nemo][nemo] + [yazi][yazi] |
-| **Fonts**                   | [Maple Mono][Maple Mono] |
+| **Fonts**                   | [CascadiaCode Nerd Font][Nerd fonts] + [JetBrainsMono Nerd Font][Nerd fonts] |
 | **Color Scheme**            | [Gruvbox Dark Hard][Gruvbox] |
-| **GTK theme**               | [Colloid gtk theme][Colloid gtk theme] |
 | **Cursor**                  | [Bibata-Modern-Ice][Bibata-Modern-Ice] |
 | **Icons**                   | [Papirus-Dark][Papirus-Dark] |
 | **Lockscreen**              | [Hyprlock][Hyprlock] + [Swaylock-effects][Swaylock-effects] |
-| **Image Viewer**            | [imv][imv] |
+| **Image Viewer**            | [qview][qview] |
 | **Media Player**            | [mpv][mpv] |
 | **Music Player**            | [audacious][audacious] |
 | **Screenshot Software**     | [grimblast][grimblast] |
-| **Screen Recording**        | [wf-recorder][wf-recorder] + [OBS][OBS] |
+| **Screen Recording**        | [wf-recorder][wf-recorder] |
 | **Clipboard**               | [wl-clip-persist][wl-clip-persist] |
 | **Color Picker**            | [hyprpicker][hyprpicker] |
 
@@ -117,11 +122,7 @@ Utils (EXPAND)
 - ```cat```   $\rightarrow$ ```bat```
 - ```nano```  $\rightarrow$ ```micro```
 - ```code```  $\rightarrow$ ```codium```
-- ```diff```  $\rightarrow$ ```delta --diff-so-fancy --side-by-side```
-- ```less```  $\rightarrow$ ```bat```
-- ```y```     $\rightarrow$ ```yazi```
 - ```py```    $\rightarrow$ ```python```
-- ```ipy```   $\rightarrow$ ```ipython```
 - ```icat```  $\rightarrow$ ```kitten icat```
 - ```dsize``` $\rightarrow$ ```du -hs```
 - ```pdf```   $\rightarrow$ ```tdf```
@@ -402,6 +403,7 @@ After rebooting, the config should be applied, you'll be greeted by hyprlock pro
 
 Even though I use home manager, there is still a little bit of manual configuration to do:
 - Set Aseprite theme (they are in the folder `./nixos-config/modules/home/aseprite/themes`).
+- Enable Discord theme (in Discord settings under VENCORD > Themes).
 - Configure the browser (for now, all browser configuration is done manually).
 - Change the git account information in `./modules/home/git.nix`
 ```nix
@@ -442,13 +444,9 @@ It will also automatically copy the hardware configuration from ```/etc/nixos/ha
 
 #### 6. Choose a host (desktop / laptop)
 
-Now you will need to choose the host you want. It depend on whether you are using a desktop or laptop (or a VM altho it can be really buggy).
+Now you will need to choose the host you want. It depend on whether you are using a desktop or laptop (or a VM altho it can be realy buggy).
 
-#### 7. Choose whether to install aseprite or not
-
-To reduce installation time, you can choose to skip installing Aseprite. The installation process for Aseprite is time-intensive as it requires compiling over 1100 C++ files from source.
-
-#### 8. Build the system
+#### 7. Build the system
 
 Lastly, it will build the system, which includes both the flake config and home-manager config.
 
@@ -486,14 +484,15 @@ Other dotfiles that I learned / copy from:
 
 <!-- Links -->
 [Hyprland]: https://github.com/hyprwm/Hyprland
-[Ghostty]: https://ghostty.org/
-[powerlevel10k]: https://github.com/romkatv/powerlevel10k
+[Wezterm]: https://wezfurlong.org/wezterm/index.html
+[Starship]: https://github.com/starship/starship
 [Waybar]: https://github.com/Alexays/Waybar
 [rofi]: https://github.com/lbonn/rofi
 [Btop]: https://github.com/aristocratos/btop
 [nemo]: https://github.com/linuxmint/nemo/
 [yazi]: https://github.com/sxyazi/yazi
 [zsh]: https://ohmyz.sh/
+[oh-my-zsh]: https://ohmyz.sh/
 [Swaylock-effects]: https://github.com/mortie/swaylock-effects
 [Hyprlock]: https://github.com/hyprwm/hyprlock
 [audacious]: https://audacious-media-player.org/
@@ -501,9 +500,9 @@ Other dotfiles that I learned / copy from:
 [VSCodium]:https://vscodium.com/
 [Neovim]: https://github.com/neovim/neovim
 [grimblast]: https://github.com/hyprwm/contrib
-[imv]: https://sr.ht/~exec64/imv/
+[qview]: https://interversehq.com/qview/
 [swaync]: https://github.com/ErikReider/SwayNotificationCenter
-[Maple Mono]: https://github.com/subframe7536/maple-font
+[Nerd fonts]: https://github.com/ryanoasis/nerd-fonts
 [NetworkManager]: https://wiki.gnome.org/Projects/NetworkManager
 [network-manager-applet]: https://gitlab.gnome.org/GNOME/network-manager-applet/
 [wl-clip-persist]: https://github.com/Linus789/wl-clip-persist
@@ -513,5 +512,3 @@ Other dotfiles that I learned / copy from:
 [Papirus-Dark]: https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
 [Bibata-Modern-Ice]: https://www.gnome-look.org/p/1197198
 [maxfetch]: https://github.com/jobcmax/maxfetch
-[Colloid gtk theme]: https://github.com/vinceliuice/Colloid-gtk-theme
-[OBS]: https://obsproject.com/
