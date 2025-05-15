@@ -26,7 +26,7 @@
 
       input = {
         kb_layout = "us";
-        kb_variant = "";
+        kb_variant = "colemak";
         kb_options = "caps:escape";
         numlock_by_default = true;
         follow_mouse = 0;
@@ -276,22 +276,22 @@
 
       # windowrule
       windowrule = [
-        "float,Viewnior"
-        "center,Viewnior"
-        "size 1200 800,Viewnior"
-        "float,imv"
-        "center,imv"
-        "size 1200 725,imv"
-        "float,mpv"
-        "center,mpv"
-        "tile,Aseprite"
-        "size 1200 725,mpv"
-        "float,audacious"
-        "pin,rofi"
-        "pin,waypaper"
-        "tile, neovide"
-        "idleinhibit focus,mpv"
-        "float,udiskie"
+        "float,class:Viewnior"
+        "center,class:Viewnior"
+        "size 1200 800,class:Viewnior"
+        "float,class:imv"
+        "center,class:imv"
+        "size 1200 725,class:imv"
+        "float,class:mpv"
+        "center,class:mpv"
+        "tile,class:Aseprite"
+        "size 1200 725,class:mpv"
+        "float,class:audacious"
+        "pin,class:rofi"
+        "pin,class:waypaper"
+        "tile,class: neovide"
+        "idleinhibit focus,class:mpv"
+        "float,class:udiskie"
         "float,title:^(Transmission)$"
         "float,title:^(Volume Control)$"
         "float,title:^(Firefox — Sharing Indicator)$"
