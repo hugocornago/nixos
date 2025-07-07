@@ -44,6 +44,7 @@ in
     pulsemixer                        # pulseaudio command line mixer with better frontend
     # copyq
     playerctl                         # controller for media players
+    piper
     poweralertd
     programmer-calculator
     ripgrep                           # grep replacement
