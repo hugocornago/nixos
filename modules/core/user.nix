@@ -33,6 +33,7 @@
       "networkmanager"
       "wheel"
       "dialout"
+      "ydotool"
     ];
     shell = pkgs.zsh;
   };
