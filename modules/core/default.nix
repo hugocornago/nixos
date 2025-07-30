@@ -10,6 +10,7 @@
   imports = [
     ./bootloader.nix
     ./hardware.nix
+    ./udev.nix
     ./xserver.nix
     ./network.nix
     ./nh.nix
