@@ -50,6 +50,10 @@
         no_border_on_floating = false;
       };
 
+      debug = {
+        full_cm_proto = true;
+      };
+
       misc = {
         disable_autoreload = true;
         disable_hyprland_logo = true;
