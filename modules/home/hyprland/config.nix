@@ -155,7 +155,7 @@
         "$mainMod SHIFT, F, fullscreen, 1"
         "$mainMod, Space, exec, toggle_float"
         "$mainMod, R, exec, rofi -show drun || pkill rofi"
-        "$mainMod, D, exec, vesktop"
+        "$mainMod, D, exec, ~/.local/bin/vesktop-hw"
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
         "$mainMod, Escape, exec, swaylock"
         "ALT, Escape, exec, hyprlock"
