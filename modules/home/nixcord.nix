@@ -6,7 +6,6 @@
 
   programs.nixcord = {
     enable = true;
-    discord.vencord.package = pkgs.vencord;
     vesktop.enable = true;
     discord.enable = false;
     config = {
@@ -16,16 +15,16 @@
       ];
       plugins = {
         alwaysTrust.enable = true;
-        betterUploadButton.enable = true;
+        # betterUploadButton.enable = true;
         blurNSFW.enable = true;
         clearURLs.enable = true;
         crashHandler.enable = true;
-        fakeNitro.enable = true;
-        fixSpotifyEmbeds.enable = true;
-        fixYoutubeEmbeds.enable = true;
+        # fakeNitro.enable = true;
+        # fixSpotifyEmbeds.enable = true;
+        # fixYoutubeEmbeds.enable = true;
         imageZoom.enable = true;
         memberCount.enable = true;
-        messageClickActions.enable = true;
+        # messageClickActions.enable = true;
         messageLogger = {
           enable = true;
          deleteStyle = "text";
