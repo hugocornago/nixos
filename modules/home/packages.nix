@@ -10,6 +10,7 @@ in
     ani-cli
     binsider
     bitwise                           # cli tool for bit / hex manipulation
+    bottles                           # wine runner
     caligula                          # User-friendly, lightweight TUI for disk imaging
     dconf-editor
     docfd                             # TUI multiline fuzzy document finder
