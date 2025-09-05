@@ -52,7 +52,7 @@ in
     shfmt                             # bash formatter
     swappy                            # snapshot editing tool
     tdf                               # cli pdf viewer
-    teamspeak3                        # teamspeak for albion
+    #teamspeak3                        # teamspeak for albion
     treefmt                          # project formatter
     tldr
     todo                              # cli todo list
