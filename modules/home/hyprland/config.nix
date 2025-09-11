@@ -9,7 +9,7 @@
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &"
 
         "nm-applet &"
-        "poweralertd &"
+        # "poweralertd &"
         "wl-paste --type text --watch cliphist store" # Stores only text data
         "wl-paste --type image --watch cliphist store" # Stores only image data
         "waybar &"
@@ -302,6 +302,7 @@
         "move 0 0,title:^(Firefox — Sharing Indicator)$"
         "size 700 450,title:^(Volume Control)$"
         "move 40 55%,title:^(Volume Control)$"
+        "tile,class:path{space}of{space}building-poe2.exe"
       ];
 
       # windowrulev2
