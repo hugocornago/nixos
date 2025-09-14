@@ -158,7 +158,7 @@
         "$mainMod, D, exec, ~/.local/bin/vesktop-hw"
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
         # "$mainMod, Escape, exec, swaylock"
-        "ALT, Escape, exec, hyprlock"
+        # "ALT, Escape, exec, hyprlock"
         "$mainMod SHIFT, Escape, exec, power-menu"
         "$mainMod, P, pseudo,"
         "$mainMod, X, togglesplit,"
