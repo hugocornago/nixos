@@ -14,6 +14,7 @@
         "wl-paste --type image --watch cliphist store" # Stores only image data
         "waybar &"
         "swaync &"
+        "~/.local/bin/poe-scroll &"
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
         "swww-daemon &"
 
