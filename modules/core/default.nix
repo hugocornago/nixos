@@ -25,5 +25,6 @@
     ./user.nix
     ./wayland.nix
     ./virtualization.nix
+    ./kernel.nix
   ];
 }
