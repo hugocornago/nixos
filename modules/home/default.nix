@@ -19,7 +19,7 @@
     ./micro.nix                       # nano replacement
     ./nixcord.nix                     # discord with nix!
     ./nemo.nix                        # file manager
-    ./nvim.nix                        # neovim editor
+    ./neovim/neovim.nix               # neovim editor
     ./p10k/p10k.nix
     ./packages.nix                    # other packages
     ./tmux.nix                        # tmux configuration
