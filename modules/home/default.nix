@@ -1,38 +1,30 @@
 {inputs, username, host, ...}: {
   imports = [
-    ./aseprite/aseprite.nix           # pixel art editor
-    ./audacious.nix                   # music player
     ./bat.nix                         # better cat command
     ./browser.nix                     # firefox based browser
     ./btop.nix                        # resouces monitor 
-    ./cava.nix                        # audio visualizer
     ./fastfetch.nix                   # fetch tool
-    ./fzf.nix                         # fuzzy finder
     ./gaming.nix                      # packages related to gaming
     ./git.nix                         # version control
     ./gnome.nix                       # gnome apps
     ./gtk.nix                         # gtk theme
     ./hyprland                        # window manager
     ./kitty.nix                       # terminal
-    ./swayosd.nix                     # brightness / volume wiget
+    #./swayosd.nix                     # brightness / volume wiget
     ./swaync/swaync.nix               # notification deamon
-    ./micro.nix                       # nano replacement
     ./nixcord.nix                     # discord with nix!
     ./nemo.nix                        # file manager
     ./neovim/neovim.nix               # neovim editor
-    ./p10k/p10k.nix
+    #./p10k/p10k.nix
     ./packages.nix                    # other packages
     ./tmux.nix                        # tmux configuration
-    ./retroarch.nix  
     ./rofi.nix                        # launcher
     ./scripts/scripts.nix             # personal scripts
-    ./starship.nix                    # shell prompt
     ./swaylock.nix                    # lock screen
-    ./viewnior.nix                    # image viewer
     ./waybar                          # status bar
     ./waypaper.nix                    # GUI wallpaper picker
     ./xdg-mimes.nix                   # xdg config
-    ./zsh                             # shell
     ./obs.nix
+    ./zsh
   ];
 }
