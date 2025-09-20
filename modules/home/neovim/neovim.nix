@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, ...}
+{ inputs, pkgs, lib, ...}:
 {
   programs.neovim = {
     enable = true;
@@ -9,4 +9,5 @@
     defaultEditor = true;
     withRuby = false;
     extraConfig = lib.fileContents ./init.lua;
-};
+  };
+}
