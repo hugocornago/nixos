@@ -20,11 +20,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    spicetify-nix = {
-      url = "github:gerg-l/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     hyprmag.url = "github:SIMULATAN/hyprmag";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
