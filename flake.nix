@@ -3,11 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05";
-
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
-
-    nix-gaming.url = "github:fufexan/nix-gaming";
 
     hyprland = {
       type = "git";
