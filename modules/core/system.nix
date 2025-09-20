@@ -25,11 +25,6 @@
       ];
     };
   };
-  nixpkgs = {
-    overlays = [ 
-      inputs.nur.overlays.default 
-    ];
-  };
 
   environment.systemPackages = with pkgs; [
     wget

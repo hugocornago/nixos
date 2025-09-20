@@ -2,7 +2,6 @@
   description = "FrostPhoenix's nixos configuration";
 
   inputs = {
-    nur.url = "github:nix-community/NUR";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05";
 
     hypr-contrib.url = "github:hyprwm/contrib";
