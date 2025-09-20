@@ -104,7 +104,5 @@ in
 
     # Python
     python3
-
-    inputs.alejandra.defaultPackage.${system}
   ]);
 }
