@@ -244,11 +244,14 @@
         "$mainMod ALT, o, moveactive, 80 0"
 
         # media and volume controls
-        # ",XF86AudioMute,exec, pamixer -t"
-        ",XF86AudioPlay,exec, playerctl play-pause"
-        ",XF86AudioNext,exec, playerctl next"
-        ",XF86AudioPrev,exec, playerctl previous"
-        ",XF86AudioStop,exec, playerctl stop"
+        ",XF86AudioMute,exec, pamixer -t"
+        ",F6,exec, ~/.local/bin/volume down 5"
+        ",F7,exec, ~/.local/bin/volume up 5"
+        ",F12,exec, ~/.local/bin/volume sink"
+        #",XF86AudioPlay,exec, playerctl play-pause"
+        #",XF86AudioNext,exec, playerctl next"
+        #",XF86AudioPrev,exec, playerctl previous"
+        #",XF86AudioStop,exec, playerctl stop"
 
         "$mainMod, mouse_down, workspace, e-1"
         "$mainMod, mouse_up, workspace, e+1"
@@ -403,4 +406,4 @@
       }
     ";
   };
-}
+ }
