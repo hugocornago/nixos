@@ -167,7 +167,6 @@
         ",F9, exec, ~/.local/autoclicker"
         # "$mainMod CTRL, E, exec, nemo"
         # "$mainMod, E, exec, hyprctl dispatch exec '[float; center; size 1111 700] nemo'"
-        # "$mainMod SHIFT, E, exec, hyprctl dispatch exec '[float; center; size 1111 700] kitty yazi'"
         "$mainMod SHIFT, B, exec, toggle_waybar"
         "$mainMod, C ,exec, hyprpicker -a"
         # "$mainMod, W,exec, wallpaper-picker"
