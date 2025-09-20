@@ -5,23 +5,19 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05";
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
-
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    hyprmag.url = "github:SIMULATAN/hyprmag";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    nixcord.url = "github:kaylorben/nixcord";
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
     };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprmag.url = "github:SIMULATAN/hyprmag";
-
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
-
-    nixcord.url = "github:kaylorben/nixcord";
   };
 
   outputs =
