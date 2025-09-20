@@ -2,7 +2,7 @@
   description = "FrostPhoenix's nixos configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
