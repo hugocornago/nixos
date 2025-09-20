@@ -18,5 +18,5 @@
     };
   };
   # To prevent getting stuck at shutdown
-  systemd.settings.Manager.DefaultTimeoutStopSec = "10s";
+  systemd.extraConfig = "DefaultTimeoutStopSec=10s";
 }
