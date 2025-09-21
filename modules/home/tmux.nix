@@ -11,12 +11,19 @@
       set-option -g prefix C-o
       bind-key C-o send-prefix
 
+      setw -g mode-keys vi
+
+			# Copy mode
+			bind-key -T copy-mode-vi 'y' send -X copy-selection
+			bind-key -T copy-mode-vi 'v' send -X begin-selection
+			bind-key -T copy-mode-vi 'C-v' send -X rectangle-toggle
+
+
       # Style points
       set -g status-style 'bg=#333333 fg=#5eacd3'
 
       set -g base-index 1
 
-      setw -g mode-keys vi
 
       # vim-like pane switching (colemak)
       bind -r ^ last-window
