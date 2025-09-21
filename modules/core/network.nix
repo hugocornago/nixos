@@ -5,12 +5,15 @@
 		wireless = {
 			enable = true;
 			secretsFile = config.sops.secrets."wireless.env".path;
+			userControlled.enable = true;
+			networks."CASA HUGO 5G".pskRaw = "ext:home_password";
+			networks."Cornago".pskRaw = "ext:phone_password";
 		  networks.eduroam = {
 				auth = ''
 					key_mgmt=WPA-EAP
 					eap=PWD
-					identity=ext:eduroam_identity
-					password=ext:eduroam_password
+					identity="873840@unizar.es"
+					password="ext:eduroam_password"
 				'';
 			};
 		};
