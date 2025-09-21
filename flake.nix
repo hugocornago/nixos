@@ -9,6 +9,10 @@
     hyprmag.url = "github:SIMULATAN/hyprmag";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nixcord.url = "github:kaylorben/nixcord";
+		sops-nix = {
+			url = "github:Mic92/sops-nix";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
@@ -21,7 +25,7 @@
   };
 
   outputs =
-    { nixpkgs, self, ... }@inputs:
+    { nixpkgs, self, sops-nix, ... }@inputs:
     let
       username = "cornago";
       system = "x86_64-linux";
@@ -43,7 +47,7 @@
         };
         laptop = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ ./hosts/laptop ];
+          modules = [ ./hosts/laptop sops-nix.nixosModules.sops ];
           specialArgs = {
             host = "laptop";
             inherit self inputs username;

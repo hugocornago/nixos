@@ -1,12 +1,24 @@
-{ pkgs, host, ... }:
+{ pkgs, host, config, ... }:
 {
   networking = {
     hostName = "${host}";
     networkmanager.enable = true;
+		networkmanager.dns = "none";
+		wireless = {
+			secretsFile = config.sops.secrets."wireless.env".path;
+		  networks.eduroam = {
+				auth = ''
+					key_mgmt=WPA-EAP
+					eap=PWD
+					identity=ext:eduroam_identity
+					password=ext:eduroam_password
+				'';
+			};
+		};
     nameservers = [
+      "1.1.1.1"
       "8.8.8.8"
       "8.8.4.4"
-      "1.1.1.1"
     ];
     firewall = {
       enable = true;
