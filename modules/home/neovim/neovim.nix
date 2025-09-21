@@ -8,6 +8,6 @@
     vimAlias = true;
     defaultEditor = true;
     withRuby = false;
-    extraConfig = lib.fileContents ./init.lua;
+    #extraConfig = lib.fileContents ./init.lua;
   };
 }
