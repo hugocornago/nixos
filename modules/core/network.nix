@@ -2,9 +2,8 @@
 {
   networking = {
     hostName = "${host}";
-    networkmanager.enable = true;
-		networkmanager.dns = "none";
 		wireless = {
+			enable = true;
 			secretsFile = config.sops.secrets."wireless.env".path;
 		  networks.eduroam = {
 				auth = ''
@@ -21,7 +20,7 @@
       "8.8.4.4"
     ];
     firewall = {
-      enable = true;
+      enable = false;
       allowedTCPPorts = [
         22
         80
@@ -35,6 +34,4 @@
       ];
     };
   };
-
-  environment.systemPackages = with pkgs; [ networkmanagerapplet ];
 }
