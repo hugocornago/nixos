@@ -18,9 +18,14 @@
 				priority = 1;
 				auth = ''
 					key_mgmt=WPA-EAP
-					eap=PWD
+					pairwise=CCMP
+					group=CCMP TKIP
+					eap=TTLS
+					phase2="auth=PAP"
+					anonymous_identity="anonymous@unizar.es"
+					ca_cert="/etc/ssl/certs/ca-bundle.crt"
 					identity="873840@unizar.es"
-					password="ext:eduroam_password"
+					password=ext:eduroam_password
 				'';
 			};
 		};
@@ -44,4 +49,7 @@
       ];
     };
   };
+
+  # eduroam
+	security.pki.certificateFiles = [ ../../networking/eduroam.unizar.crt ];
 }
