@@ -43,6 +43,8 @@ vim.api.nvim_create_autocmd('FileType', {
 	callback = function ()
 		vim.schedule(function ()
 			vim.keymap.set("n", "<leader>lp", ":TypstPreview<CR>", {buffer = true})
+			vim.bo.spelllang = "es"
+			vim.cmd("setl spell")
 		end)
 	end
 })
