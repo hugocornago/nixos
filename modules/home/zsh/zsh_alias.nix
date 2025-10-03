@@ -41,6 +41,9 @@
       # python
       pcv = "python -m venv .venv";
       psv = "source .venv/bin/activate";
+
+      # nix
+			nd = "nix develop";
     };
   };
 }
