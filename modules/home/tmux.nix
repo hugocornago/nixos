@@ -15,8 +15,7 @@
 			set -g status-style "bg=default"
 			set -g window-status-current-style "fg=blue bg=default bold"
 			set -g status-right ""
-			#set -g status-left "#S"
-			set -g status-left ""
+			set -g status-left "#S"
 			set -g focus-events on
 			set -g default-terminal "tmux-256color"
 
@@ -27,7 +26,8 @@
 
 
       # TODO: tmux-sessionasizer
-      # bind-key -r f run-shell "tmux nnew ~/.local/bin/tmux-sessionasizer"
+      bind f run-shell "tmux neww ~/.local/bin/tmux-sessionizer"
+      bind C run-shell "tmux neww ~/.local/bin/tmux-sessionizer ~/nixos"
   
       # Useful keybindings
       bind-key -r l new-window -n lazygit lazygit
