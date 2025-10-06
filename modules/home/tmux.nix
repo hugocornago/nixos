@@ -28,6 +28,7 @@
 
       # TODO: tmux-sessionasizer
       bind f run-shell "tmux neww ~/.local/bin/tmux-sessionizer"
+      bind g run-shell "~/.local/bin/open-github"
       bind C run-shell "tmux neww ~/.local/bin/tmux-sessionizer ~/nixos"
   
       # Useful keybindings

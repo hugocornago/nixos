@@ -1,0 +1,29 @@
+#!/bin/sh
+
+remotes=$(git remote 2>/dev/null)
+
+[ -z "$remotes" ] && {
+	echo "no remotes found"
+	exit 1
+}
+
+# try origin
+if [[ `echo "$remotes" | grep ^origin$` ]] ; then 
+	remote_url=`git remote get-url origin`
+elif [[ `echo "$remotes" | grep ^github$` ]]; then
+	remote_url=`git remote get-url github`
+else
+	remote_url=`git remote get-url $remotes`
+fi
+
+if [[ "$remote_url" =~ ^https:// ]]; then
+	xdg-open "$remote_url"
+elif [[ "$remote_url" =~ ^(github|gitlab) ]]; then 
+	url=$(echo "$remote_url" \
+		| sed 's|^github.*:|https://github.com/|' \
+		| sed 's|^gitlab.*:|https://gitlab.com/|' \
+	)
+	xdg-open "$url"
+else
+	xdg-open "$remote_url"
+fi
