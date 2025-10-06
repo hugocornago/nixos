@@ -11,11 +11,12 @@
 			set -g renumber-windows on
 			set -g mode-keys vi
 			set -g status-position top
-			set -g status-justify absolute-center
+			set -g status-justify absolute-centre
 			set -g status-style "bg=default"
 			set -g window-status-current-style "fg=blue bg=default bold"
 			set -g status-right ""
-			set -g status-left "#S"
+			#set -g status-left "#S"
+			set -g status-left ""
 			set -g focus-events on
 			set -g default-terminal "tmux-256color"
 
