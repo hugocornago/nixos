@@ -26,5 +26,6 @@
     ./xdg-mimes.nix                   # xdg config
     ./obs.nix
     ./zsh
+		./symlinks.nix
   ];
 }
