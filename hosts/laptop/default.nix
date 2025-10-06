@@ -1,16 +1,27 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, inputs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
+		inputs.lanzaboote.nixosModules.lanzaboote
   ];
+
 
   environment.systemPackages = with pkgs; [
     acpi
     brightnessctl
     cpupower-gui
     powertop
+		sbctl
   ];
+
+	boot = {
+		loader.systemd-boot.enable = lib.mkForce false;
+		lanzaboote = {
+			enable = true;
+			pkiBundle = "/var/lib/sbctl";
+		};
+	};
 
   services = {
     power-profiles-daemon.enable = true;
