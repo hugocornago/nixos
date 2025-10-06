@@ -1,0 +1,4 @@
+#!/usr/bin/env nix-shell
+#! nix-shell -i sh -p appimage-run
+
+appimage-run ~/projects/exiled-exchange/main/dist/Exiled-Exchange-2-0.12.1.AppImage

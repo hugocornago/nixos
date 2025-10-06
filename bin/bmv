@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+book=$1
+device=/dev/sda1
+mountpoint=/mnt/ebook
+
+die ()
+{
+  echo $1
+  exit 1
+}
+
+mount_ebook ()
+{
+  echo "Mounting $device in $mountpoint..."
+  sudo mount $device $mountpoint || die "ERROR"
+  echo "OK"
+}
+
+[[ -f $1 ]] || die "Especifica el libro a mover"
+
+# 1. check if the device is connected
+lsblk | grep -q sda || die "El ebook no esta conectado"
+
+# 2. check if the ebook is mounted
+findmnt -rno TARGET /mnt/ebook >/dev/null || mount_ebook
+
+# 3. move the book to the ebook
+sudo mv "$book" "$mountpoint/documents"

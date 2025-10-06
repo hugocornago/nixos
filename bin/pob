@@ -1,0 +1,12 @@
+#!/bin/sh
+
+POB_PATH=~/projects/pob
+
+pushd "$POB_PATH" >/dev/null
+
+notify-send "Updating PathOfBuilding..."
+git fetch origin
+git pull -q -r
+notify-send "Update completed"
+
+bottles-cli run -b test -e "$POB_PATH/runtime/Path{space}of{space}Building-PoE2.exe" # >/dev/null 2>&1

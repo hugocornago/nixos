@@ -1,0 +1,14 @@
+#!/bin/sh
+
+template=$1
+
+[ -z $template ] && { 
+	echo "specify a template:"
+  echo -e "\t- trivial"
+  echo -e "\t- python"
+  echo -e "\t- java"
+	exit 1
+}
+
+nix flake init --template "$HOME/projects/nix-templates#$template"
+cp ~/.local/nix/flake.lock .

@@ -1,0 +1,2 @@
+#!/bin/sh
+bottles-cli run -b test -e "$PWD/$1"
