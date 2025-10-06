@@ -19,6 +19,7 @@ in
     file                              # Show file information 
     imv                               # image viewer
     jq                                # JSON processor
+    skim                              # skim
     keepassxc
     killall
     lazygit
