@@ -16,6 +16,7 @@
 			set -g window-status-current-style "fg=blue bg=default bold"
 			set -g status-right ""
 			set -g status-left "#S"
+			set -g status-left-length 25
 			set -g focus-events on
 			set -g default-terminal "tmux-256color"
 
