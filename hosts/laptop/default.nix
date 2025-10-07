@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ./../../modules/core/laptop.nix
     ./network.nix
+		./security.nix
 		inputs.lanzaboote.nixosModules.lanzaboote
   ];
 

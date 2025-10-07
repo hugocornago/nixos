@@ -5,15 +5,6 @@
   # security.pam.services.swaylock = { };
   security.pam.services.hyprlock = { };
 
-	# sops
-	sops = {
-	  defaultSopsFile = ../../secrets/secrets.yaml;
-	  defaultSopsFormat = "yaml";
-		age.keyFile = "/home/cornago/.config/sops/age/keys.txt";
-		secrets."wireless.env" = {};
-	};
-
-
   # Change efi vars group
   environment.systemPackages = with pkgs; [
     efibootmgr
