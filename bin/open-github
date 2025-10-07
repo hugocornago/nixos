@@ -17,13 +17,13 @@ else
 fi
 
 if [[ "$remote_url" =~ ^https:// ]]; then
-	xdg-open "$remote_url"
+	xdg-open "$remote_url" >/dev/null
 elif [[ "$remote_url" =~ ^(github|gitlab) ]]; then 
 	url=$(echo "$remote_url" \
 		| sed 's|^github.*:|https://github.com/|' \
 		| sed 's|^gitlab.*:|https://gitlab.com/|' \
 	)
-	xdg-open "$url"
+	xdg-open "$url" >/dev/null
 else
-	xdg-open "$remote_url"
+	xdg-open "$remote_url" >/dev/null
 fi
