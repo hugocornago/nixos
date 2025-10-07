@@ -1,7 +1,8 @@
-{ pkgs, host, config, ... }:
+{ pkgs, host, config, lib, ... }:
 {
   networking = {
     hostName = "${host}";
+		networkmanager.enable = lib.mkDefault false;
 		wireless = {
 			enable = true;
 			secretsFile = config.sops.secrets."wireless.env".path;
