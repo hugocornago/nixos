@@ -2,7 +2,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./../../modules/core
+    ./../../modules/core/laptop.nix
+    ./network.nix
 		inputs.lanzaboote.nixosModules.lanzaboote
   ];
 
