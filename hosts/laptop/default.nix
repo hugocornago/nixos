@@ -8,7 +8,6 @@
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
-    ./security.nix
     inputs.lanzaboote.nixosModules.lanzaboote
   ];
 

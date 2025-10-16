@@ -12,6 +12,12 @@
   users.groups.efiboot = {};
   users.groups.efiboot.members = ["cornago"];
 
+  sops = {
+    defaultSopsFile = ../../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/cornago/.config/sops/age/keys.txt";
+  };
+
   security.sudo.extraRules = [
     {
       groups = ["efiboot"];

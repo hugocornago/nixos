@@ -1,10 +1,10 @@
 {
-  pkgs,
   host,
   config,
-  lib,
   ...
 }: {
+  sops.secrets."wireless.env" = {};
+
   networking = {
     hostName = "${host}";
     wireless = {

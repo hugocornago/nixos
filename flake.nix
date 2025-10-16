@@ -47,6 +47,7 @@
         inherit system;
         modules = [
           determinate.nixosModules.default
+          sops-nix.nixosModules.sops
           ./hosts/desktop
         ];
         specialArgs = {
