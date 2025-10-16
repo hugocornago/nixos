@@ -11,7 +11,7 @@
       enable = true;
       secretsFile = config.sops.secrets."wireless.env".path;
       userControlled.enable = true;
-      networks."CASA HUGO 5G" = {
+      networks."CASA HUGO" = {
         pskRaw = "ext:home_password";
         priority = 10;
       };
