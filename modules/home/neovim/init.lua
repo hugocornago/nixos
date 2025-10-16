@@ -88,7 +88,7 @@ require 'blink.cmp'.setup({
 	}
 })
 
-vim.lsp.enable({ "lua_ls", "rust_analyzer", "jdtls", "tinymist" })
+vim.lsp.enable({ "lua_ls", "rust_analyzer", "jdtls", "tinymist", "basedpyright", "nixd" })
 vim.diagnostic.config({ virtual_text = true })
 
 -- colorscheme
