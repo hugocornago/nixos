@@ -50,6 +50,7 @@ in {
     xxd
 
     # CLI
+    attic-client
     #cbonsai                           # terminal screensaver
     #cmatrix
     #pipes                             # terminal screensaver
