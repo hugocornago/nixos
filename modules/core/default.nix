@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./bootloader.nix
+    ./detsys.nix
     ./hardware.nix
     ./udev.nix
     ./xserver.nix
