@@ -14,6 +14,9 @@
       networks."CASA HUGO" = {
         pskRaw = "ext:home_password";
         priority = 10;
+        extraConfig = ''
+          bssid_blacklist=80:af:ca:68:32:d0
+        '';
       };
       networks."Cornago" = {
         pskRaw = "ext:phone_password";
