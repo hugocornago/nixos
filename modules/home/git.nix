@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.git = {
     enable = true;
 
@@ -28,7 +27,7 @@
     };
   };
 
-  home.packages = [ pkgs.git-lfs ]; # pkgs.git-lfs
+  home.packages = [pkgs.git-lfs]; # pkgs.git-lfs
 
   programs.zsh.shellAliases = {
     g = "lazygit";

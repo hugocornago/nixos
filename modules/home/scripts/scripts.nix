@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   wall-change = pkgs.writeShellScriptBin "wall-change" (
     builtins.readFile ./scripts/wall-change.sh
   );
@@ -65,9 +64,7 @@ let
   windows-reboot = pkgs.writeScriptBin "windows-reboot" (
     builtins.readFile ./scripts/windows-reboot.sh
   );
-
-in
-{
+in {
   home.packages = with pkgs; [
     wall-change
     wallpaper-picker

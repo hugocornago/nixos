@@ -4,8 +4,7 @@
   lib,
   inputs,
   ...
-}:
-{
+}: {
   # imports = [ inputs.nix-gaming.nixosModules.default ];
   nix = {
     settings = {
@@ -14,8 +13,8 @@
         "nix-command"
         "flakes"
       ];
-      substituters = [ 
-        "https://nix-community.cachix.org" 
+      substituters = [
+        "https://nix-community.cachix.org"
         "https://cache.nixos.org"
       ];
       trusted-public-keys = [

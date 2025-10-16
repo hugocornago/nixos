@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.dconf.enable = true;
   programs.zsh.enable = true;
   programs.gnupg.agent = {
@@ -9,6 +12,6 @@
   };
   programs.ydotool.enable = true;
   # programs.nix-ld.enable = false;
-  # programs.nix-ld.libraries = with pkgs; [ 
+  # programs.nix-ld.libraries = with pkgs; [
   # ];
 }

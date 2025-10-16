@@ -1,28 +1,32 @@
-{ pkgs, config, lib, inputs, ... }:
 {
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
-		./security.nix
-		inputs.lanzaboote.nixosModules.lanzaboote
+    ./security.nix
+    inputs.lanzaboote.nixosModules.lanzaboote
   ];
-
 
   environment.systemPackages = with pkgs; [
     acpi
     brightnessctl
     cpupower-gui
     powertop
-		sbctl
+    sbctl
   ];
 
-	boot = {
-		loader.systemd-boot.enable = lib.mkForce false;
-		lanzaboote = {
-			enable = true;
-			pkiBundle = "/var/lib/sbctl";
-		};
-	};
+  boot = {
+    loader.systemd-boot.enable = lib.mkForce false;
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
+    };
+  };
 
   services = {
     power-profiles-daemon.enable = true;
@@ -63,13 +67,12 @@
   powerManagement.cpuFreqGovernor = "performance";
 
   boot = {
-    kernelModules = [ "acpi_call" ];
-    extraModulePackages =
-      with config.boot.kernelPackages;
+    kernelModules = ["acpi_call"];
+    extraModulePackages = with config.boot.kernelPackages;
       [
         acpi_call
         cpupower
       ]
-      ++ [ pkgs.cpupower-gui ];
+      ++ [pkgs.cpupower-gui];
   };
 }

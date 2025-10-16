@@ -4,8 +4,7 @@
   pkgs,
   host,
   ...
-}:
-{
+}: {
   programs.zsh = {
     shellAliases = {
       # Utils
@@ -43,7 +42,7 @@
       psv = "source .venv/bin/activate";
 
       # nix
-			nd = "nix develop";
+      nd = "nix develop";
     };
   };
 }

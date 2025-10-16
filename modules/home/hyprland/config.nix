@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   wayland.windowManager.hyprland = {
     settings = {
       # autostart
@@ -406,4 +405,4 @@
       }
     ";
   };
- }
+}

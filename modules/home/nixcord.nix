@@ -1,5 +1,8 @@
-{ inputs, pkgs, ... }:
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.nixcord.homeModules.nixcord
   ];
@@ -27,10 +30,10 @@
         # messageClickActions.enable = true;
         messageLogger = {
           enable = true;
-         deleteStyle = "text";
-        logDeletes = true;
-        logEdits = true;
-        ignoreSelf = true;
+          deleteStyle = "text";
+          logDeletes = true;
+          logEdits = true;
+          ignoreSelf = true;
         };
         volumeBooster.enable = true;
       };

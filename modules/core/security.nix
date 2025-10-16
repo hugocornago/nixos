@@ -1,9 +1,8 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   security.rtkit.enable = true;
   security.sudo.enable = true;
   # security.pam.services.swaylock = { };
-  security.pam.services.hyprlock = { };
+  security.pam.services.hyprlock = {};
 
   # Change efi vars group
   environment.systemPackages = with pkgs; [
@@ -11,9 +10,17 @@
   ];
 
   users.groups.efiboot = {};
-  users.groups.efiboot.members = [ "cornago" ];
+  users.groups.efiboot.members = ["cornago"];
 
   security.sudo.extraRules = [
-    { groups = [ "efiboot" ]; commands = [ { command = "/run/current-system/sw/bin/efibootmgr"; options = [ "NOPASSWD" ]; } ]; }  
+    {
+      groups = ["efiboot"];
+      commands = [
+        {
+          command = "/run/current-system/sw/bin/efibootmgr";
+          options = ["NOPASSWD"];
+        }
+      ];
+    }
   ];
 }

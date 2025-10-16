@@ -1,11 +1,13 @@
-{ pkgs, config, ... }:
-let
-  monolisa = pkgs.callPackage ../../pkgs/monolisa/monolisa.nix { };
+{
+  pkgs,
+  config,
+  ...
+}: let
+  monolisa = pkgs.callPackage ../../pkgs/monolisa/monolisa.nix {};
   monolisa-nerd = pkgs.callPackage ../../pkgs/monolisa/monolisa-nerd.nix {
     inherit monolisa;
   };
-in
-{
+in {
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -29,14 +31,14 @@ in
     theme = {
       name = "Gruvbox-Green-Dark";
       package = pkgs.gruvbox-gtk-theme.override {
-        colorVariants = [ "dark" ];
-        themeVariants = [ "green" ];
-        tweakVariants = [ "macos" ];
+        colorVariants = ["dark"];
+        themeVariants = ["green"];
+        tweakVariants = ["macos"];
       };
     };
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme.override { color = "black"; };
+      package = pkgs.papirus-icon-theme.override {color = "black";};
     };
     cursorTheme = {
       name = "Bibata-Modern-Ice";
