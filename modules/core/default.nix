@@ -23,6 +23,7 @@
     ./system.nix
     ./user.nix
     ./wayland.nix
+		./warp.nix
     ./virtualization.nix
     ./kernel.nix
   ];
