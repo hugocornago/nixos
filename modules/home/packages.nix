@@ -28,9 +28,10 @@ in {
     libnotify
     man-pages # extra man pages
     mpv # video player
+		mpvScripts.cutter
     ncdu # disk space
     nitch # systhem fetch util
-    openrgb-with-all-plugins # plugins for openrgb
+    unstable.openrgb-with-all-plugins # plugins for openrgb
     onefetch # fetch utility for git repo
     p7zip-rar # almighty decompressor
     pamixer # pulseaudio command line mixer
