@@ -41,4 +41,7 @@
 
   # eduroam
   security.pki.certificateFiles = [../../networking/eduroam.unizar.crt];
+
+	# modifiable /etc/hosts
+	environment.etc.hosts.mode = "0644";
 }
