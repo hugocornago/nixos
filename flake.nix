@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     determinate = {
       url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,6 +42,11 @@
   } @ inputs: let
     username = "cornago";
     system = "x86_64-linux";
+		overlay-unstable = final: prev: {
+			unstable = import inputs.nixpkgs-unstable {
+				inherit system;
+			};
+		};
   in {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
@@ -48,6 +54,11 @@
         modules = [
           determinate.nixosModules.default
           sops-nix.nixosModules.sops
+
+					{
+						nixpkgs.overlays = [ overlay-unstable ];
+					}
+
           ./hosts/desktop
         ];
         specialArgs = {
