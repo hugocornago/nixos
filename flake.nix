@@ -42,11 +42,11 @@
   } @ inputs: let
     username = "cornago";
     system = "x86_64-linux";
-		overlay-unstable = final: prev: {
-			unstable = import inputs.nixpkgs-unstable {
-				inherit system;
-			};
-		};
+    overlay-unstable = final: prev: {
+      unstable = import inputs.nixpkgs-unstable {
+        inherit system;
+      };
+    };
   in {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
@@ -55,9 +55,9 @@
           determinate.nixosModules.default
           sops-nix.nixosModules.sops
 
-					{
-						nixpkgs.overlays = [ overlay-unstable ];
-					}
+          {
+            nixpkgs.overlays = [overlay-unstable];
+          }
 
           ./hosts/desktop
         ];

@@ -31,7 +31,7 @@
     };
     spiceUSBRedirection.enable = true;
 
-		docker.enable = true;
+    docker.enable = true;
   };
 
   services.spice-vdagentd.enable = true;

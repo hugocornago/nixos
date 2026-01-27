@@ -8,5 +8,5 @@
     ];
   };
 
-	nixpkgs.config.segger-jlink.acceptLicense = true;
+  nixpkgs.config.segger-jlink.acceptLicense = true;
 }

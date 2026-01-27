@@ -28,7 +28,7 @@ in {
     libnotify
     man-pages # extra man pages
     mpv # video player
-		mpvScripts.cutter
+    mpvScripts.cutter
     ncdu # disk space
     nitch # systhem fetch util
     unstable.openrgb-with-all-plugins # plugins for openrgb
