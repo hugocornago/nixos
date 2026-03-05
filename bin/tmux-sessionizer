@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
 paths=(
-	"$HOME/uni/semestre6/"
-	"$HOME/uni/semestre7/"
-	# "$HOME/projects/"
+	"$HOME/uni/semestre8/"
 )
 
 selected=$1

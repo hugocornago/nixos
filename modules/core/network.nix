@@ -4,6 +4,7 @@
   ...
 }: {
   sops.secrets."wireless.env" = {};
+	services.blueman.enable = true;
 
   networking = {
     hostName = "${host}";
@@ -36,9 +37,22 @@
           password=ext:eduroam_password
         '';
       };
+
+			networks.deza = {
+				priority = 0;
+				psk = "miwifiputas";
+			};
+
+			networks."HotelSkylineLoft_5G" = {
+				priority = 1;
+				psk = "pedrezuela";
+			};
     };
   };
 
   # eduroam
   security.pki.certificateFiles = [../../networking/eduroam.unizar.crt];
+
+	# modifiable /etc/hosts
+	environment.etc.hosts.mode = "0644";
 }

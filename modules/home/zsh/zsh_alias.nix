@@ -42,7 +42,7 @@
       psv = "source .venv/bin/activate";
 
       # nix
-      nd = "nix develop";
+      nd = "nix develop -c zsh";
     };
   };
 }

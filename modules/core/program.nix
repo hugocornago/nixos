@@ -11,7 +11,7 @@
     # pinentryFlavor = "";
   };
   programs.ydotool.enable = true;
-  # programs.nix-ld.enable = false;
+  programs.nix-ld.enable = true;
   # programs.nix-ld.libraries = with pkgs; [
   # ];
 }

@@ -16,6 +16,7 @@
     ./nh.nix
     ./pipewire.nix
     ./program.nix
+		./time.nix
     ./security.nix
     ./services.nix
     ./syncthing.nix
