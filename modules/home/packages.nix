@@ -52,7 +52,7 @@ in {
     xxd
 
     # games
-    heroic
+    unstable.heroic
 
     # CLI
     attic-client
