@@ -31,6 +31,10 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+		nix-index-database = {
+			url = "github:nix-community/nix-index-database";
+			inputs.follows = "nixpkgs";
+		};
   };
 
   outputs = {
@@ -54,6 +58,7 @@
         modules = [
           determinate.nixosModules.default
           sops-nix.nixosModules.sops
+					inputs.nix-index-database.nixosModules.default
 
           {
             nixpkgs.overlays = [overlay-unstable];
