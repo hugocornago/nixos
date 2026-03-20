@@ -19,7 +19,7 @@
       plugins = {
         alwaysTrust.enable = true;
         # betterUploadButton.enable = true;
-        blurNSFW.enable = true;
+        #blurNSFW.enable = true;
         clearURLs.enable = true;
         crashHandler.enable = true;
         # fakeNitro.enable = true;
