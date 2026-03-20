@@ -26,7 +26,7 @@
       ll = "eza --icons  -a --group-directories-first -1 --no-user --long";
       ls = "eza";
       sl = "eza";
-      tree = "eza --icons --tree --group-directories-first";
+      tree = "eza --icons --tree --group-directories-first --git-ignore";
 
       # Nixos
       # cdnix = "cd ~/nixos-config && codium ~/nixos-config";
