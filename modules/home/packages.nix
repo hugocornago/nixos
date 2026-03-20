@@ -50,6 +50,9 @@ in {
     xdg-utils
     xxd
 
+		# games
+		heroic
+
     # CLI
     attic-client
     #cbonsai                           # terminal screensaver
