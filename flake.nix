@@ -62,6 +62,7 @@
 
           {
             nixpkgs.overlays = [overlay-unstable];
+            programs.nix-index-database.comma.enable = true;
           }
 
           ./hosts/desktop
