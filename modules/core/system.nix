@@ -20,6 +20,7 @@
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
       tarball-ttl = 14 * 24 * 3600; # 14 days
+      eval-cores = 0; # parallelize
     };
   };
 
