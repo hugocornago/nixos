@@ -13,7 +13,7 @@ in {
     bitwise # cli tool for bit / hex manipulation
     bottles # wine runner
     caligula # User-friendly, lightweight TUI for disk imaging
-		comma
+    comma
     #dconf-editor
     eza # ls replacement
     entr # perform action when file change
@@ -51,8 +51,8 @@ in {
     xdg-utils
     xxd
 
-		# games
-		heroic
+    # games
+    heroic
 
     # CLI
     attic-client

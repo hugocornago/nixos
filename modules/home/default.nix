@@ -30,7 +30,7 @@
     ./waypaper.nix # GUI wallpaper picker
     ./xdg-mimes.nix # xdg config
     ./obs.nix
-		./replay.nix
+    ./replay.nix
     ./zsh
     ./symlinks.nix
   ];
