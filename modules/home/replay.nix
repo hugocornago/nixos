@@ -1,29 +1,52 @@
-{pkgs}: let
+{pkgs, ...}: let
   replayScript = pkgs.writeShellScript "replay.sh" ''
-    #!/usr/bin/env bash
-    function handle {
-    	if [[ "$\{1:0:10}" == "openwindow" ]] && [[ "$1" == *"Minecraft"* ]]; then
-    		gpu-screen-recorder \
-    			-r 900 \
-    			-w portal \
-    			-a app:java \
-    			-f 144 \
-    			-c mp4 -o "$HOME/Videos" \
-    			-restore-portal-session yes \
-    			-cursor no \
-    			-df \
-    			-restart-replay-on-save yes \
-    			-replay-storage ram \
-    			-encoder gpu
-    	fi
-    }
+		exec 2>/tmp/minecraft-replay.err
+		exec >/tmp/minecraft-replay.log
 
-    socat - UNIX-CONNECT:/tmp/hypr/$(echo $HYPRLAND_INSTANCE_SIGNATURE)/.socket2.sock | while read line; do handle $line; done
+		function handle {
+			case "$1" in
+				openwindow*)
+				if [[ "$1" == *"Minecraft"* ]]; then
+					sleep 2
+					gpu-screen-recorder \
+						-r 900 \
+						-w portal \
+						-a app:java \
+						-f 144 \
+						-c mp4 -o "$HOME/Videos" \
+						-restore-portal-session no \
+						-cursor no \
+						-df yes \
+						-restart-replay-on-save yes \
+						-encoder gpu &
+				fi
+				;;
+				closewindow*)
+					if [[ "$1" == *"Minecraft"* ]]; then
+						pkill -SIGUSR1 -f gpu-screen-recorder # save recording
+						pkill -SIGINT  -f gpu-screen-recorder # exit program
+					fi
+					;;
+			esac
+		}
+
+		SOCKET_FILE="$XDG_RUNTIME_DIR/hypr/$(echo $HYPRLAND_INSTANCE_SIGNATURE)/.socket2.sock"
+		while [ ! -S $SOCKET_FILE ]
+		do
+			SOCKET_FILE="$XDG_RUNTIME_DIR/hypr/$(echo $HYPRLAND_INSTANCE_SIGNATURE)/.socket2.sock"
+			echo "$SOCKET_FILE"
+			echo "not found"
+			sleep 0.5
+		done
+
+		while true; do
+			socat - UNIX-CONNECT:$SOCKET_FILE | while read line; do handle $line; done
+		done
   '';
   saveReplayScript = pkgs.writeShellScript "saveReplay.sh" ''
     #!/usr/bin/env bash
     pkill -SIGUSR1 -f gpu-screen-recorder
-    notify-send "Replay Saved\!"
+    notify-send "Replay Saved."
   '';
 in {
   home.packages = with pkgs; [
@@ -31,9 +54,9 @@ in {
   ];
 
   wayland.windowManager.hyprland.settings = {
-    exec-once = ["${replayScript}"];
+    exec = ["${replayScript} &"];
     bind = [
-      "$mainMod,`,exec, ${saveReplayScript}"
+      "$mainMod,GRAVE,exec, ${saveReplayScript}"
     ];
   };
 }
