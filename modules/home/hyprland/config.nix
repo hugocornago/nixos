@@ -37,7 +37,7 @@
         mouse_refocus = 0;
         sensitivity = 0;
         touchpad = {
-          disable_when_typing = true;
+          disable_while_typing = true;
           natural_scroll = true;
         };
       };
@@ -142,7 +142,7 @@
         # keybindings
         "$mainMod, Return, exec, kitty"
         "$mainMod SHIFT, Return, exec, [fullscreen] kitty"
-        "$mainMod, B, exec, hyprctl dispatch exec '[workspace 2 silent] zen'"
+        "$mainMod, B, exec, hyprctl dispatch exec '[workspace 2 silent] zen-beta'"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
