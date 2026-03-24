@@ -27,6 +27,10 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    autofirma-nix = {
+      url = "github:nix-community/autofirma-nix/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

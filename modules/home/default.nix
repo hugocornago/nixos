@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./autofirma.nix
     ./bat.nix # better cat command
     ./browser.nix # firefox based browser
     ./btop.nix # resouces monitor
