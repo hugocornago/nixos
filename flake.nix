@@ -8,20 +8,12 @@
       url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hypr-contrib.url = "github:hyprwm/contrib";
-    hyprpicker.url = "github:hyprwm/hyprpicker";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    hyprmag.url = "github:SIMULATAN/hyprmag";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nixcord.url = "github:FlameFlag/nixcord";
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
     };
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
@@ -82,7 +74,17 @@
       };
       vm = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./hosts/vm];
+        modules = [
+          sops-nix.nixosModules.sops
+          inputs.nix-index-database.nixosModules.default
+
+          {
+            nixpkgs.overlays = [overlay-unstable];
+            programs.nix-index-database.comma.enable = true;
+          }
+
+          ./hosts/vm
+        ];
         specialArgs = {
           host = "vm";
           inherit self inputs username;

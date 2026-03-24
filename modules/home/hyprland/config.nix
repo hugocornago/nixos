@@ -1,6 +1,9 @@
 {...}: {
   wayland.windowManager.hyprland = {
     settings = {
+      "$mainMod" = "SUPER";
+
+      monitor = [",preferred,auto,auto"];
       # autostart
       exec-once = [
         "systemctl --user import-environment &"
@@ -34,20 +37,18 @@
         mouse_refocus = 0;
         sensitivity = 0;
         touchpad = {
+          disable_when_typing = true;
           natural_scroll = true;
         };
       };
 
       general = {
-        "$mainMod" = "SUPER";
         layout = "dwindle";
-        gaps_in = 5;
-        gaps_out = 10;
+        gaps_in = 6;
+        gaps_out = 12;
         border_size = 2;
         "col.active_border" = "rgb(A89984)";
         "col.inactive_border" = "0x00000000";
-        # border_part_of_window = false;
-        no_border_on_floating = false;
       };
 
       debug = {
@@ -57,29 +58,19 @@
       misc = {
         disable_autoreload = true;
         disable_hyprland_logo = true;
-        always_follow_on_dnd = true;
-        layers_hog_keyboard_focus = true;
-        animate_manual_resizes = false;
-        enable_swallow = true;
+        disable_splash_rendering = false;
         focus_on_activate = true;
-        new_window_takes_over_fullscreen = 2;
         middle_click_paste = true;
       };
 
       dwindle = {
-        # no_gaps_when_only = false;
-        force_split = 0;
-        special_scale_factor = 1.0;
-        split_width_multiplier = 1.0;
+        force_split = 2;
+        preserve_split = true;
         use_active_for_splits = true;
-        pseudotile = "yes";
-        preserve_split = "yes";
       };
 
       master = {
         new_status = "master";
-        special_scale_factor = 1;
-        # no_gaps_when_only = false;
       };
 
       decoration = {
@@ -103,7 +94,6 @@
         shadow = {
           enabled = true;
 
-          ignore_window = true;
           offset = "0 2";
           range = 20;
           render_power = 3;
@@ -139,6 +129,10 @@
           # "borderangle, 1, 30,  fluent_decel, once" # for animating the border's gradient angle - styles: once (default), loop
           "workspaces,  1, 4,   easeOutCubic, fade" # styles: slide, slidevert, fade, slidefade, slidefadevert
         ];
+      };
+
+      xwayland = {
+        force_zero_scaling = true;
       };
 
       bind = [
@@ -279,129 +273,66 @@
         "$mainMod, mouse:273, resizewindow"
       ];
 
-      # windowrule
       windowrule = [
-        "float,class:Viewnior"
-        "center,class:Viewnior"
-        "size 1200 800,class:Viewnior"
-        "float,class:imv"
-        "center,class:imv"
-        "size 1200 725,class:imv"
-        "float,class:mpv"
-        "center,class:mpv"
-        "tile,class:Aseprite"
-        "size 1200 725,class:mpv"
-        "float,class:audacious"
-        "pin,class:rofi"
-        "pin,class:waypaper"
-        "tile,class: neovide"
-        "idleinhibit focus,class:mpv"
-        "float,class:udiskie"
-        "float,title:^(Transmission)$"
-        "float,title:^(Volume Control)$"
-        "float,title:^(Firefox — Sharing Indicator)$"
-        "move 0 0,title:^(Firefox — Sharing Indicator)$"
-        "size 700 450,title:^(Volume Control)$"
-        "move 40 55%,title:^(Volume Control)$"
-        "tile,class:path{space}of{space}building-poe2.exe"
-      ];
+        "match:class ^(imv)$, float on"
+        "match:class ^(mpv)$, float on"
+        "match:class ^(zenity)$, float on"
+        "match:class ^(waypaper)$, float on"
+        "match:class ^(SoundWireServer)$, float on"
+        "match:class ^(.sameboy-wrapped)$, float on"
+        "match:class ^(org.gnome.Calculator)$, float on"
+        "match:class ^(org.gnome.FileRoller)$, float on"
+        "match:class ^(org.pulseaudio.pavucontrol)$, float on"
 
-      # windowrulev2
-      windowrulev2 = [
-        "tag +poe, title:(Path of Exile 2)"
-        "tag +poe, class:(steam_app_2694490)"
-        "float, tag:poe"
-        "tag +apt, title:(Exiled Exchange 2)"
-        "tag +apt, class:(exiled-exchange-2)"
-        "float, tag:apt"
-        "noblur, tag:apt"
-        "nofocus, tag:apt # Disable auto-focus"
-        "noshadow, tag:apt"
-        "noborder, tag:apt"
-        "size 100% 100%, tag:apt"
-        "center, tag:apt"
-        "float, title:^(Picture-in-Picture)$"
-        "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
-        "pin, title:^(Picture-in-Picture)$"
-        "opacity 1.0 override 1.0 override, title:^(.*imv.*)$"
-        "opacity 1.0 override 1.0 override, title:^(.*mpv.*)$"
-        "opacity 1.0 override 1.0 override, class:(Aseprite)"
-        "opacity 1.0 override 1.0 override, class:(Unity)"
-        "opacity 1.0 override 1.0 override, class:(steam_app_2694490)"
-        "opacity 1.0 override 1.0 override, class:(zen)"
-        "opacity 1.0 override 1.0 override, class:(evince)"
-        "workspace 1, class:^(steam_app_2694490)$"
-        "workspace 1, class:^(.gamescope-wrapped)$"
-        "workspace 2, class:^(zen)$"
-        "workspace 3, class:^(evince)$"
-        "workspace 4, class:^(Gimp-2.10)$"
-        "workspace 4, class:^(Aseprite)$"
-        "workspace 5, class:^(Audacious)$"
-        "workspace 5, class:^(Spotify)$"
-        "workspace 8, class:^(com.obsproject.Studio)$"
-        "workspace 10, class:^(vesktop)$"
-        "fullscreen, class:^(steam_app_2694490)$"
-        "fullscreen, class:^(.gamescope-wrapped)$"
-        "idleinhibit focus, class:^(mpv)$"
-        "idleinhibit fullscreen, class:^(firefox)$"
-        "float,class:^(waypaper)$"
-        "float,class:^(zenity)$"
-        "center,class:^(zenity)$"
-        "size 850 500,class:^(zenity)$"
-        "float,class:^(org.gnome.FileRoller)$"
-        "center,class:^(org.gnome.FileRoller)$"
-        "size 850 500,class:^(org.gnome.FileRoller)$"
-        "size 850 500,title:^(File Upload)$"
-        "float,class:^(pavucontrol)$"
-        "float,class:^(SoundWireServer)$"
-        "float,class:^(.sameboy-wrapped)$"
-        "float,class:^(file_progress)$"
-        "float,class:^(confirm)$"
-        "float,class:^(dialog)$"
-        "float,class:^(download)$"
-        "float,class:^(notification)$"
-        "float,class:^(error)$"
-        "float,class:^(confirmreset)$"
-        "float,title:^(Open File)$"
-        "float,title:^(File Upload)$"
-        "float,title:^(branchdialog)$"
-        "float,title:^(Confirm to replace files)$"
-        "float,title:^(File Operation Progress)$"
+        "match:class ^(rofi)$, pin on"
+        "match:class ^(waypaper)$, pin on"
 
-        "opacity 0.0 override,class:^(xwaylandvideobridge)$"
-        "noanim,class:^(xwaylandvideobridge)$"
-        "noinitialfocus,class:^(xwaylandvideobridge)$"
-        "maxsize 1 1,class:^(xwaylandvideobridge)$"
-        "noblur,class:^(xwaylandvideobridge)$"
+        "match:class ^(Aseprite)$, tile on"
+
+        "match:class ^(zenity)$, size 850 500"
+        "match:class ^(SoundWireServer)$, size 725 330"
+
+        "match:title ^(Volume Control)$, size 700 450"
+        "match:title ^(Volume Control)$, move 40 55%"
+
+        "match:title ^(Picture-in-Picture)$, pin on"
+        "match:title ^(Picture-in-Picture)$, float on"
+
+        "match:class ^(zen-beta)$, workspace 1"
+        "match:class ^(Gimp-2.10)$, workspace 4"
+        "match:class ^(Aseprite)$, workspace 4"
+        "match:class ^(Audacious)$, workspace 5"
+        "match:class ^(Spotify)$, workspace 5"
+        "match:class ^(com.obsproject.Studio)$, workspace 8"
+        "match:class ^(discord)$, workspace 10"
+        "match:class ^(WebCord)$, workspace 10"
+        "match:class ^(vesktop)$, workspace 10"
+
+        "match:class ^(mpv)$, idle_inhibit focus"
+        "match:class ^(zen-beta)$, match:title ^(.*YouTube.*)$, idle_inhibit focus"
+        "match:class ^(zen)$, idle_inhibit fullscreen"
+
+        "match:class ^(xdg-desktop-portal-gtk)$, dim_around on"
+
+        "match:xwayland true, rounding 0"
 
         # No gaps when only
-        "bordersize 0, floating:0, onworkspace:w[t1]"
-        "rounding 0, floating:0, onworkspace:w[t1]"
-        "bordersize 0, floating:0, onworkspace:w[tg1]"
-        "rounding 0, floating:0, onworkspace:w[tg1]"
-        "bordersize 0, floating:0, onworkspace:f[1]"
-        "rounding 0, floating:0, onworkspace:f[1]"
+        "border_size 0, match:float 0, match:workspace w[tv1]"
+        "rounding 0, match:float 0, match:workspace w[tv1]"
+        "border_size 0, match:float 0, match:workspace f[1]"
+        "rounding 0, match:float 0, match:workspace f[1]"
+      ];
 
-        # Remove context menu transparency in chromium based apps
-        "opaque,class:^()$,title:^()$"
-        "noshadow,class:^()$,title:^()$"
-        "noblur,class:^()$,title:^()$"
+      layerrule = [
+        "match:namespace rofi, dim_around on"
+        "match:namespace swaync-control-center, dim_around on"
       ];
 
       # No gaps when only
       workspace = [
-        "w[t1], gapsout:0, gapsin:0"
-        "w[tg1], gapsout:0, gapsin:0"
+        "w[tv1], gapsout:0, gapsin:0"
         "f[1], gapsout:0, gapsin:0"
       ];
     };
-
-    extraConfig = "
-      monitor=,preferred,auto,auto
-
-      xwayland {
-        force_zero_scaling = true
-      }
-    ";
   };
 }
