@@ -5,7 +5,7 @@
     # userName = "hugocornago";
     # userEmail = "hugo@cornago.net";
 
-    extraConfig = {
+    settings = {
       user.name = "Hugo Cornago";
       user.email = "hugo@zuperito.xyz";
       user.signingKey = "E68FD6797DEB7313";
@@ -14,16 +14,6 @@
       credential.helper = "store";
       merge.conflictstyle = "diff3";
       diff.colorMoved = "default";
-    };
-
-    delta = {
-      enable = true;
-      options = {
-        line-numbers = true;
-        side-by-side = true;
-        diff-so-fancy = true;
-        navigate = true;
-      };
     };
   };
 

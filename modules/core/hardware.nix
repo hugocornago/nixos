@@ -3,8 +3,7 @@
     graphics = {
       enable = true;
       extraPackages = with pkgs; [
-        (vaapiIntel.override {enableHybridCodec = true;})
-        vaapiVdpau
+        libva-vdpau-driver
         libvdpau-va-gl
       ];
     };
