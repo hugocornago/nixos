@@ -17,8 +17,8 @@
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
+    package = pkgs.unstable.hyprland;
+    portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
     xwayland = {
       enable = true;
       # hidpi = true;
