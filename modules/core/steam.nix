@@ -6,6 +6,10 @@
   programs = {
     steam = {
       enable = true;
+			package = pkgs.steam.override {
+				# skip waiting for network screen
+				extraProfile = "export DBUS_SYSTEM_BUS_ADDRESS=";
+			};
 
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = false;

@@ -17,16 +17,13 @@
 
   # enable firefox to use with autofirma
   programs.firefox = {
-    enable = true;
+    enable = false;
 
     # Set up security devices for DNIe access
     policies = {
       SecurityDevices = {
         # For physical smart card readers (like DNIe)
         "OpenSC PKCS11" = "${pkgs.opensc}/lib/opensc-pkcs11.so";
-
-        # For smartphone NFC using DNIeRemote
-        "DNIeRemote" = "${config.programs.dnieremote.finalPackage}/lib/libdnieremotepkcs11.so";
       };
     };
 
