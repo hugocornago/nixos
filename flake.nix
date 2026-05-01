@@ -35,6 +35,10 @@
       url = "github:hugocornago/pkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+		volume = {
+			url = "path:tools/volume";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
   };
 
   outputs = {
@@ -51,6 +55,7 @@
         inherit system;
       };
       exiled-exchange-2 = inputs.exiled-exchange.packages.${prev.system}.exiled-exchange-2;
+			volume = inputs.volume.packages.${prev.system}.default;
     };
   in {
     nixosConfigurations = {
