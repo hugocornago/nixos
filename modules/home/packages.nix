@@ -7,6 +7,7 @@
 in {
   home.packages = with pkgs; [
     _2048
+    exiled-exchange-2
 
     ## CLI utility
     binsider

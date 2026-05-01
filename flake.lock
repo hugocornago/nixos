@@ -135,6 +135,26 @@
         "url": "https://install.determinate.systems/determinate-nixd/tag/v3.17.1/x86_64-linux"
       }
     },
+    "exiled-exchange": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1774365363,
+        "narHash": "sha256-SPy2angawpJCylY+ebDvt8ibaRtmafLA9C/r2Dx3Lyo=",
+        "owner": "Guno327",
+        "repo": "pkgs",
+        "rev": "9b862f05d5b8d2d4f65743585f309a566f415cca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Guno327",
+        "repo": "pkgs",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -802,6 +822,7 @@
       "inputs": {
         "autofirma-nix": "autofirma-nix",
         "determinate": "determinate",
+        "exiled-exchange": "exiled-exchange",
         "home-manager": "home-manager_2",
         "lanzaboote": "lanzaboote",
         "neovim-nightly-overlay": "neovim-nightly-overlay",

@@ -31,6 +31,10 @@
       url = "github:nix-community/autofirma-nix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    exiled-exchange = {
+      url = "github:hugocornago/pkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -46,6 +50,7 @@
       unstable = import inputs.nixpkgs-unstable {
         inherit system;
       };
+      exiled-exchange-2 = inputs.exiled-exchange.packages.${prev.system}.exiled-exchange-2;
     };
   in {
     nixosConfigurations = {
