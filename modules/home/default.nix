@@ -15,6 +15,7 @@
     ./gnome.nix # gnome apps
     ./gtk.nix # gtk theme
     ./hyprland # window manager
+    ./i3.nix
     ./kitty.nix # terminal
     #./swayosd.nix                     # brightness / volume wiget
     ./swaync/swaync.nix # notification deamon
