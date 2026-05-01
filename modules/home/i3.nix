@@ -3,21 +3,15 @@
   lib,
   ...
 }: {
-  services.xserver = {
+  xsession.windowManager.i3 = {
     enable = true;
-    desktopManager = {
-      xterm.enable = false;
-    };
-
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        dmenu
-        i3status
-      ];
+    package = pkgs.i3-gaps;
+    config = {
+      modifier = "Mod4";
+      gaps = {
+        inner = 10;
+        outer = 5;
+      };
     };
   };
-
-  services.displayManager.enable = true;
-  services.displayManager.defaultSession = "none+hyprland";
 }

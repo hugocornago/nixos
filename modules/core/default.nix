@@ -10,6 +10,7 @@
     ./bootloader.nix
     ./detsys.nix
     ./hardware.nix
+    ./i3.nix
     ./udev.nix
     ./xserver.nix
     ./network.nix

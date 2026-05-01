@@ -3,13 +3,14 @@
   lib,
   ...
 }: {
+  environment.systemPackages = [pkgs.gamemode];
   programs = {
     steam = {
       enable = true;
-			package = pkgs.steam.override {
-				# skip waiting for network screen
-				extraProfile = "export DBUS_SYSTEM_BUS_ADDRESS=";
-			};
+      package = pkgs.steam.override {
+        # skip waiting for network screen
+        extraProfile = "export DBUS_SYSTEM_BUS_ADDRESS=";
+      };
 
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = false;
@@ -21,10 +22,15 @@
 
     gamescope = {
       enable = true;
-      capSysNice = true;
+      capSysNice = false;
       args = [
-        "--rt"
-        "--expose-wayland"
+        "-w 2560"
+        "-h 1440"
+        "-W 2560"
+        "-H 1440"
+        "-r 144"
+        # "--force-grab-cursor"
+        # "--force-windows-fullscreen"
       ];
     };
   };
