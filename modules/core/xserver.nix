@@ -6,11 +6,13 @@
   services = {
     xserver = {
       enable = true;
-      xkb.layout = "us,fr";
+      xkb.layout = "us";
+      xkb.variant = "colemak";
+      xkb.options = "caps:escape";
     };
 
     displayManager.autoLogin = {
-      enable = true;
+      enable = false;
       user = "${username}";
     };
     libinput = {
@@ -21,5 +23,5 @@
     };
   };
   # To prevent getting stuck at shutdown
-  systemd.settings.Manager.RebootWatchdogSec = "10min";
+  systemd.settings.Manager.RebootWatchdogSec = "10sec";
 }
