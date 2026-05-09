@@ -5,13 +5,15 @@
   config,
   ...
 }: {
-	services.picom = {
-		enable = true;
-		backend = "xrender";
-		opacityRules = [ 
-			"90:class_g = 'exiled-exchange-2'" 
-		];	
-	};
+  services.picom = {
+    enable = true;
+    backend = "xrender";
+    opacityRules = [
+      "90:class_g = 'exiled-exchange-2'"
+    ];
+  };
+
+  systemd.user.services.picom.unitConfig.ConditionalEnvironment = "XDG_SESSION_TYPE=x11";
 
   xsession.windowManager.i3 = {
     enable = true;
@@ -42,14 +44,14 @@
       in
         lib.mkOptionDefault {
           # "${modifier}+Return" = "exec i3-sensible-terminal";
-					"${modifier}+Shift+q" = "exec i3-msg exit";
+          "${modifier}+Shift+q" = "exec i3-msg exit";
           "${modifier}+w" = "kill";
           "${modifier}+r" = "exec ${pkgs.dmenu}/bin/dmenu_run";
           "${modifier}+b" = "exec ${zen-browser}/bin/zen-beta";
           "${modifier}+d" = "[class=\"vesktop\"] focus";
-					"F6" = "exec ${pkgs.volume}/bin/volume down 5";
-					"F7" = "exec ${pkgs.volume}/bin/volume up 5";
-					"F12" = "exec ${pkgs.volume}/bin/volume sink";
+          "F6" = "exec ${pkgs.volume}/bin/volume down 5";
+          "F7" = "exec ${pkgs.volume}/bin/volume up 5";
+          "F12" = "exec ${pkgs.volume}/bin/volume sink";
         };
     };
   };
