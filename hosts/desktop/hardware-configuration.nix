@@ -13,8 +13,9 @@
   boot.initrd.kernelModules = ["amdgpu"];
   boot.kernelModules = ["kvm-amd"];
   boot.kernelParams = [
-    "amdgpu.dcdebugmask=0x10"
-    "pcie_aspm=off"
+    "amdgpu.ppfeaturemask=0xffffffff" # unlock all power features
+    "amdgpu.dcdebugmask=0"
+    "amdgpu.gpu_recovery=1"
   ];
   boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_zen;
   boot.extraModulePackages = [];
@@ -51,4 +52,8 @@
   systemd.tmpfiles.rules = [
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
   ];
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 }
