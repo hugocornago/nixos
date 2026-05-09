@@ -11,6 +11,7 @@
     # pinentryFlavor = "";
   };
   programs.ydotool.enable = true;
+  programs.coolercontrol.enable = true;
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     xorg.libX11
