@@ -75,6 +75,7 @@ in {
     thunderbird
     zathura
     zenity
+    rusty-path-of-building
 
     xclip
 

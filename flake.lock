@@ -135,26 +135,6 @@
         "url": "https://install.determinate.systems/determinate-nixd/tag/v3.20.0/x86_64-linux"
       }
     },
-    "exiled-exchange": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1777632870,
-        "narHash": "sha256-W4pLefZnkJyiyU6r82pfYxUQXtzAPpmmd9KGnba14ns=",
-        "owner": "hugocornago",
-        "repo": "pkgs",
-        "rev": "e6cbdf0ad06853b2f002412378e5cdccd299b3ce",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hugocornago",
-        "repo": "pkgs",
-        "type": "github"
-      }
-    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -495,6 +475,26 @@
         "type": "github"
       }
     },
+    "my-pkgs": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780073184,
+        "narHash": "sha256-hbdQzAaIPdA/ikSWBgFCf57Jep8Pi2ZISrmv/YeHYww=",
+        "owner": "hugocornago",
+        "repo": "pkgs",
+        "rev": "ca1124f9a45111a961b320925ce468e264b9ecc7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hugocornago",
+        "repo": "pkgs",
+        "type": "github"
+      }
+    },
     "neovim-nightly-overlay": {
       "inputs": {
         "flake-parts": "flake-parts_4",
@@ -754,11 +754,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1777954456,
-        "narHash": "sha256-hGdgeU2Nk87RAuZyYjyDjFL6LK7dAZN5RE9+hrDTkDU=",
+        "lastModified": 1779560665,
+        "narHash": "sha256-tpyBcxPpcQb8ukyNF7DoCwfSY3VPsxHoYwj00Cayv5o=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "549bd84d6279f9852cae6225e372cc67fb91a4c1",
+        "rev": "64c08a7ca051951c8eae34e3e3cb1e202fe36786",
         "type": "github"
       },
       "original": {
@@ -877,9 +877,9 @@
       "inputs": {
         "autofirma-nix": "autofirma-nix",
         "determinate": "determinate",
-        "exiled-exchange": "exiled-exchange",
         "home-manager": "home-manager_2",
         "lanzaboote": "lanzaboote",
+        "my-pkgs": "my-pkgs",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nix-index-database": "nix-index-database",
         "nixcord": "nixcord",
