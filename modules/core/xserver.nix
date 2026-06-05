@@ -22,6 +22,4 @@
       # };
     };
   };
-  # To prevent getting stuck at shutdown
-  systemd.settings.Manager.RebootWatchdogSec = "10sec";
 }

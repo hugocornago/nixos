@@ -17,4 +17,6 @@
     xorg.libX11
     xorg.libXcursor
   ];
+
+  environment.corePackages = [ pkgs.liquidctl ];
 }

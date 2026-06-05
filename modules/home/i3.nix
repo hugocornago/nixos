@@ -9,7 +9,7 @@
     enable = true;
     backend = "xrender";
     opacityRules = [
-      "90:class_g = 'exiled-exchange-2'"
+      "95:class_g = 'exiled-exchange-2'"
     ];
   };
 
@@ -21,8 +21,8 @@
       modifier = "Mod4";
       terminal = "kitty";
       gaps = {
-        inner = 10;
-        outer = 5;
+        inner = 0;
+        outer = 0;
       };
 
       startup = [
@@ -51,6 +51,7 @@
           "${modifier}+d" = "[class=\"vesktop\"] focus";
           "F6" = "exec ${pkgs.volume}/bin/volume down 5";
           "F7" = "exec ${pkgs.volume}/bin/volume up 5";
+          "F9" = "exec ~.local/bin/poe-macro.sh";
           "F12" = "exec ${pkgs.volume}/bin/volume sink";
         };
     };

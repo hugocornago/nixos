@@ -482,11 +482,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780073184,
-        "narHash": "sha256-hbdQzAaIPdA/ikSWBgFCf57Jep8Pi2ZISrmv/YeHYww=",
+        "lastModified": 1780504464,
+        "narHash": "sha256-kr/7ZqytTHTkPvknR5XvPhlvGBUl4wjukWw2ziMxAsk=",
         "owner": "hugocornago",
         "repo": "pkgs",
-        "rev": "ca1124f9a45111a961b320925ce468e264b9ecc7",
+        "rev": "25ffc9a1a503a03670f348588dbea56cff2f4102",
         "type": "github"
       },
       "original": {

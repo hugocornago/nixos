@@ -7,9 +7,9 @@
     enable = true;
     clean = {
       enable = true;
-      extraArgs = "--keep-since 7d --keep 5";
+      extraArgs = "--keep-since 16d --keep 10";
     };
-    flake = ".";
+    flake = "/home/cornago/nixos";
   };
 
   environment.systemPackages = with pkgs; [

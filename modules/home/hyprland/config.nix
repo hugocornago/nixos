@@ -154,7 +154,7 @@
         # "ALT, Escape, exec, hyprlock"
         "$mainMod SHIFT, Escape, exec, power-menu"
         "$mainMod, P, pseudo,"
-        "$mainMod, X, togglesplit,"
+        "$mainMod, X, layoutmsg,togglesplit"
         "$mainMod, T, exec, toggle_oppacity"
         ",F9, exec, ~/.local/autoclicker"
         # "$mainMod CTRL, E, exec, nemo"

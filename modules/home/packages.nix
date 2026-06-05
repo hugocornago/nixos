@@ -78,6 +78,7 @@ in {
     rusty-path-of-building
 
     xclip
+    xdotool
 
     # Python
     python3

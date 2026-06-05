@@ -30,6 +30,9 @@
     socat
   ];
 
+  systemd.user.extraConfig = "DefaultTimeoutStopSec=10";
+  systemd.settings.Manager.DefaultTimeoutStopSec = 10;
+
   time.timeZone = "Europe/Paris";
   i18n.defaultLocale = "en_US.UTF-8";
   nixpkgs.config.allowUnfree = true;
