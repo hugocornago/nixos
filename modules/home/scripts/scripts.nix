@@ -64,13 +64,8 @@
   windows-reboot = pkgs.writeScriptBin "windows-reboot" (
     builtins.readFile ./scripts/windows-reboot.sh
   );
-
-  poe-macro = pkgs.writeScriptBin "poe-macro" (
-    builtins.readFile ./scripts/poe-macro.sh
-  );
 in {
   home.packages = [
-    poe-macro
     wall-change
     wallpaper-picker
     random-wallpaper
