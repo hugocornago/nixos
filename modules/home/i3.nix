@@ -51,7 +51,8 @@
           "${modifier}+d" = "[class=\"vesktop\"] focus";
           "F6" = "exec ${pkgs.volume}/bin/volume down 5";
           "F7" = "exec ${pkgs.volume}/bin/volume up 5";
-          "F9" = "exec ~.local/bin/poe-macro.sh";
+          "${modifier}+q" = "exec ~/.local/bin/screenshot";
+          "F9" = "exec ~/.local/bin/poe-macro.sh";
           "F12" = "exec ${pkgs.volume}/bin/volume sink";
         };
     };
