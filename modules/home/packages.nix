@@ -8,11 +8,13 @@ in {
   home.packages = with pkgs; [
     _2048
     exiled-exchange-2
+    tesseract
+    maim
 
     ## CLI utility
     binsider
     bitwise # cli tool for bit / hex manipulation
-    bottles # wine runner
+    (bottles.override { removeWarningPopup = true; }) # wine runner
     caligula # User-friendly, lightweight TUI for disk imaging
     #dconf-editor
     eza # ls replacement
