@@ -12,7 +12,7 @@ symlinkJoin
 rec {
   name = "share.sh";
   description = "Utility to upload video clips to my homeserver.";
-  buildInputs = [ makeWrapper ffmpeg file gawk mktemp rsync ];
+  buildInputs = [ makeWrapper ffmpeg file gawk rsync ];
   paths = [script] ++ buildInputs;
   postBuild = "wrapProgram $out/bin/${script-name} --prefix PATH : $out/bin";
 }
