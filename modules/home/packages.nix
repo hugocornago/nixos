@@ -11,6 +11,7 @@ in {
   home.packages = with pkgs; [
     # _2048
     share
+    awakened-poe-trade
     exiled-exchange-2
     tesseract
     maim

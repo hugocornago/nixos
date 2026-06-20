@@ -54,6 +54,7 @@
       unstable = import inputs.nixpkgs-unstable {
         inherit system;
       };
+      awakened-poe-trade = inputs.my-pkgs.packages.${prev.stdenv.hostPlatform.system}.awakened-poe-trade;
       exiled-exchange-2 = inputs.my-pkgs.packages.${prev.stdenv.hostPlatform.system}.exiled-exchange-2;
       volume = inputs.volume.packages.${prev.stdenv.hostPlatform.system}.default;
       rusty-path-of-building = inputs.my-pkgs.packages.${prev.stdenv.hostPlatform.system}.rusty-path-of-building;
