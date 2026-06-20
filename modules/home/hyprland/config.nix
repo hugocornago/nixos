@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   wayland.windowManager.hyprland = {
+    configType = "hyprlang";
     settings = {
       "$mainMod" = "SUPER";
 

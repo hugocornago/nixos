@@ -1,12 +1,10 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
-  _2048 = pkgs.callPackage ../../pkgs/2048/default.nix {};
+{pkgs, ...}: let
+  # _2048 = pkgs.callPackage ../../pkgs/2048/default.nix {};
+  share = pkgs.callPackage ../../pkgs/share/default.nix {};
 in {
   home.packages = with pkgs; [
-    _2048
+    # _2048
+    share
     exiled-exchange-2
     tesseract
     maim
@@ -14,7 +12,7 @@ in {
     ## CLI utility
     binsider
     bitwise # cli tool for bit / hex manipulation
-    (bottles.override { removeWarningPopup = true; }) # wine runner
+    (bottles.override {removeWarningPopup = true;}) # wine runner
     caligula # User-friendly, lightweight TUI for disk imaging
     #dconf-editor
     eza # ls replacement

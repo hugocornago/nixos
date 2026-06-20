@@ -3,14 +3,16 @@
   config,
   ...
 }: {
-  sops.secrets."wireless.env" = {};
+  sops.secrets."wireless.env" = {
+    owner = "wpa_supplicant";
+  };
 
   networking = {
     hostName = "${host}";
     wireless = {
       enable = true;
       secretsFile = config.sops.secrets."wireless.env".path;
-      userControlled.enable = true;
+      userControlled = true;
       networks."CASA HUGO" = {
         pskRaw = "ext:home_password";
         priority = 10;

@@ -14,9 +14,9 @@
   programs.coolercontrol.enable = true;
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-    xorg.libX11
-    xorg.libXcursor
+    libX11
+    libXcursor
   ];
 
-  environment.corePackages = [ pkgs.liquidctl ];
+  environment.corePackages = [pkgs.liquidctl];
 }

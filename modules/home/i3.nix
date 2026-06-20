@@ -4,7 +4,19 @@
   lib,
   config,
   ...
-}: {
+}: let
+  poe-scroll-macro = pkgs.writeShellScriptBin "poe-macro.sh" ''
+    #!/bin/sh
+    ${pkgs.i3}/bin/i3-msg -t subscribe -m '[ "window" ]' | while read line; do
+      class=`echo $line | ${pkgs.jq}/bin/jq -r .container.window_properties.class`;
+      if [[ "$class" == "steam_app_2694490" ]]; then
+        ${pkgs.xbindkeys}/bin/xbindkeys -f ~/.xbindkeysrc
+      else
+        killall xbindkeys
+      fi
+    done
+  '';
+in {
   services.picom = {
     enable = true;
     backend = "xrender";
@@ -28,8 +40,9 @@
       startup = [
         {command = "${pkgs.dunst}/bin/dunst";}
         {command = "steam";}
-        {command = "exec ~/.local/bin/vesktop-hw";}
+        {command = "~/.local/bin/vesktop-hw";}
         {command = "${pkgs.exiled-exchange-2}/bin/exiled-exchange-2";}
+        {command = "${poe-scroll-macro}/bin/poe-macro.sh";}
       ];
 
       assigns = {

@@ -6,12 +6,12 @@
 }: {
   imports = [inputs.autofirma-nix.homeManagerModules.default];
   programs.autofirma = {
-    enable = true;
+    enable = false;
     firefoxIntegration.profiles.default.enable = true;
     config.omitAskOnClose = true;
   };
   programs.configuradorfnmt = {
-    enable = true;
+    enable = false;
     firefoxIntegration.profiles.default.enable = true;
   };
 
