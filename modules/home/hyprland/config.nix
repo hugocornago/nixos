@@ -19,7 +19,7 @@
         "swaync &"
         "~/.local/bin/poe-scroll &"
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
-        "swww-daemon &"
+        "awww-daemon &"
 
         "hyprlock"
 
