@@ -25,24 +25,22 @@ EXTENSION=`echo $VIDEO | awk -F . '{print $NF}'`
 FULLNAME="$NAME.$EXTENSION"
 
 # 0. Preencode the video
-if [ `du -m $VIDEO | cut -f1` -gt 500 ]; then
-  echo "Video is bigger than 500MB, encoding..."
+notify-send "Encoding the video"
 
-  TMPFILE=$(mktemp --suffix .mp4)
+TMPFILE=$(mktemp --suffix .mp4)
 
-  ffmpeg -y \
-  -vaapi_device /dev/dri/renderD128 \
-  -i "$VIDEO" \
-  -vf 'format=nv12,hwupload' \
-  -c:v h264_vaapi \
-  -rc_mode CQP -qp 27 \
-  -maxrate 4400k -bufsize 8800k \
-  -c:a aac -b:a 128k \
-  -movflags +faststart \
-  "$TMPFILE"
+ffmpeg -y \
+-vaapi_device /dev/dri/renderD128 \
+-i "$VIDEO" \
+-vf 'format=nv12,hwupload' \
+-c:v h264_vaapi \
+-rc_mode CQP -qp 27 \
+-maxrate 4400k -bufsize 8800k \
+-c:a aac -b:a 128k \
+-movflags +faststart \
+"$TMPFILE"
 
-  VIDEO=$TMPFILE
-fi
+VIDEO=$TMPFILE
 
 # 1. Subir video a /storage/Videos/public/
 rsync --no-perms -avPW "$VIDEO" "server:/storage/Videos/public/$FULLNAME"
