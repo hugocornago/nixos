@@ -1,6 +1,12 @@
 {pkgs, ...}: let
   # _2048 = pkgs.callPackage ../../pkgs/2048/default.nix {};
   share = pkgs.callPackage ../../pkgs/share/default.nix {};
+  pob = pkgs.writeShellScriptBin "pob" ''
+    ${pkgs.rusty-path-of-building}/bin/rusty-path-of-building poe1
+  '';
+  pob2 = pkgs.writeShellScriptBin "pob2" ''
+    ${pkgs.rusty-path-of-building}/bin/rusty-path-of-building poe2
+  '';
 in {
   home.packages = with pkgs; [
     # _2048
@@ -8,6 +14,8 @@ in {
     exiled-exchange-2
     tesseract
     maim
+    pob
+    pob2
 
     ## CLI utility
     binsider
