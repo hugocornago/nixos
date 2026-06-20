@@ -1,16 +1,18 @@
-{ stdenv
-, lib
-, bash
-, maim
-, tesseract
-, makeWrapper
-, patsh
-}: stdenv.mkDerivation rec {
+{
+  stdenv,
+  lib,
+  bash,
+  maim,
+  tesseract,
+  makeWrapper,
+  patsh,
+}:
+stdenv.mkDerivation rec {
   name = "poe-macro";
 
   phases = ["installPhase"];
-  buildInputs = [ bash maim tesseract ];
-  nativeBuildInputs = [ makeWrapper patsh ];
+  buildInputs = [bash maim tesseract];
+  nativeBuildInputs = [makeWrapper patsh];
   script = builtins.readFile ./poe-macro.sh;
 
   installPhase = ''
