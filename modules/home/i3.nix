@@ -16,6 +16,7 @@
       fi
     done
   '';
+  steam-export = pkgs.callPackage ../../pkgs/steam-export/default.nix {};
 in {
   services.picom = {
     enable = true;
@@ -66,6 +67,7 @@ in {
           "F7" = "exec ${pkgs.volume}/bin/volume up 5";
           "${modifier}+q" = "exec ~/.local/bin/screenshot";
           "F9" = "exec ~/.local/bin/poe-macro.sh";
+          "F10" = "exec ${steam-export}/bin/steam-export.sh";
           "F12" = "exec ${pkgs.volume}/bin/volume sink";
         };
     };
