@@ -49,8 +49,8 @@ in {
     playerctl # controller for media players
     piper
     ripgrep # grep replacement
-    swappy # snapshot editing tool
-    tldr
+    # swappy # snapshot editing tool
+    cht-sh
     todo # cli todo list
     toipe # typing test in the terminal
     unzip
@@ -64,7 +64,7 @@ in {
     unstable.heroic
 
     # CLI
-    attic-client
+    # attic-client
     #cbonsai                           # terminal screensaver
     #cmatrix
     #pipes                             # terminal screensaver
