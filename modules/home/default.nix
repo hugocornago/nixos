@@ -4,6 +4,10 @@
   host,
   ...
 }: {
+  # fix options.json
+  # https://github.com/nix-community/home-manager/issues/7935
+  manual.manpages.enable = false;
+
   imports = [
     ./autofirma.nix
     ./bat.nix # better cat command
