@@ -30,15 +30,15 @@ notify-send "Encoding the video"
 TMPFILE=$(mktemp --suffix .mp4)
 
 ffmpeg -y \
--vaapi_device /dev/dri/renderD128 \
--i "$VIDEO" \
--vf 'format=nv12,hwupload' \
--c:v h264_vaapi \
--rc_mode CQP -qp 27 \
--maxrate 4400k -bufsize 8800k \
--c:a aac -b:a 128k \
--movflags +faststart \
-"$TMPFILE"
+  -vaapi_device /dev/dri/renderD128 \
+  -i "$VIDEO" \
+  -vf 'format=nv12,hwupload' \
+  -c:v h264_vaapi \
+  -rc_mode CQP -qp 27 \
+  -maxrate 4400k -bufsize 8800k \
+  -c:a aac -b:a 128k \
+  -movflags +faststart \
+  "$TMPFILE"
 
 VIDEO=$TMPFILE
 
@@ -50,13 +50,13 @@ ssh server "chown copyparty:storage /storage/Videos/public/$FULLNAME"
 # 2. Crear el share link (custom)
 SHARE="https://files.cornago.net/shares/videos/$FULLNAME"
 
-# 4. Copiar al clipboard
+# 3. Copiar al clipboard
 if [ "$XDG_SESSION_TYPE" == "x11" ]; then
   echo $SHARE | xclip -selection clipboard
 elif [ "$XDG_SESSION_TYPE" == "wayland" ]; then 
   echo $SHARE | wl-copy -p
 fi
 
-echo $SHARE
+echo "Share created at $SHARE"
 
 notify-send "Clip copied to the clipboard"
