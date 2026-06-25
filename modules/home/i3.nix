@@ -23,6 +23,7 @@ in {
     backend = "xrender";
     opacityRules = [
       "95:class_g = 'exiled-exchange-2'"
+      "95:class_g = 'awakened-poe-trade'"
     ];
   };
 
@@ -43,6 +44,7 @@ in {
         {command = "steam";}
         {command = "~/.local/bin/vesktop-hw";}
         {command = "${pkgs.exiled-exchange-2}/bin/exiled-exchange-2";}
+        {command = "${pkgs.awakened-poe-trade}/bin/awakened-poe-trade";}
         {command = "${poe-scroll-macro}/bin/poe-macro.sh";}
       ];
 
