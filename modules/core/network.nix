@@ -24,6 +24,11 @@
         pskRaw = "ext:phone_password";
         priority = 2;
       };
+
+      networks."Bambino" = {
+        pskRaw = "ext:vacation_password";
+        priority = 10;
+      };
       networks.eduroam = {
         priority = 1;
         auth = ''
